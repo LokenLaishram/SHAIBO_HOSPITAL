@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediqura.Web", "Mediqura.Web\Mediqura.Web.csproj", "{9715CAF9-678B-4403-A4F7-82BF18143778}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediqura.BOL", "Mediqura.BOL\Mediqura.BOL.csproj", "{02849E73-113B-408A-8CF7-68B9B9BFBD9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediqura.CommonData", "Mediqura.CommonData\Mediqura.CommonData.csproj", "{C30AD028-9D08-46BA-8BD1-146E45157D37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediqura.DAL", "Mediqura.DAL\Mediqura.DAL.csproj", "{B81552C5-B198-4C53-B900-5F51148F530B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C30AD028-9D08-46BA-8BD1-146E45157D37} = {C30AD028-9D08-46BA-8BD1-146E45157D37}
+		{5B95A665-958A-46DC-9009-2C91D60DA37E} = {5B95A665-958A-46DC-9009-2C91D60DA37E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediqura.Utility", "Mediqura.Utility\Mediqura.Utility.csproj", "{5B95A665-958A-46DC-9009-2C91D60DA37E}"
+EndProject
+Global
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9715CAF9-678B-4403-A4F7-82BF18143778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9715CAF9-678B-4403-A4F7-82BF18143778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9715CAF9-678B-4403-A4F7-82BF18143778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9715CAF9-678B-4403-A4F7-82BF18143778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02849E73-113B-408A-8CF7-68B9B9BFBD9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02849E73-113B-408A-8CF7-68B9B9BFBD9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02849E73-113B-408A-8CF7-68B9B9BFBD9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C30AD028-9D08-46BA-8BD1-146E45157D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30AD028-9D08-46BA-8BD1-146E45157D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30AD028-9D08-46BA-8BD1-146E45157D37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B81552C5-B198-4C53-B900-5F51148F530B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81552C5-B198-4C53-B900-5F51148F530B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81552C5-B198-4C53-B900-5F51148F530B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B95A665-958A-46DC-9009-2C91D60DA37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B95A665-958A-46DC-9009-2C91D60DA37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B95A665-958A-46DC-9009-2C91D60DA37E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F163B1DC-DDBF-4A9C-B095-B0B673814462}
+	EndGlobalSection
+EndGlobal

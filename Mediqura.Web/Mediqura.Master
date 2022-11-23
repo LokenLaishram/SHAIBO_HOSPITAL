@@ -1,0 +1,636 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Mediqura.Master.cs" Inherits="Mediqura.Web.Mediqura" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MEDIQURA</title>
+    <%--<link href="css/temp.css" rel="stylesheet" type="text/css" />--%>
+    <link type="text/css" rel="stylesheet" href="css/ChatStyle.css" />
+    <link rel="stylesheet" href="/css/JQueryUI/themes/base/jquery.ui.all.css" />
+    <%--<link href="Styles/dataTables.bootstrap.min.css" rel="stylesheet" />--%>
+    <link href="DashboardCss/bootstrap.min.css" rel="stylesheet" />
+    <link href="Styles/responsive.bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="DashboardCss/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+    <link href="DashboardCss/custom.min.css" rel="stylesheet" />
+    <link href="Styles/medistyles.css" rel="stylesheet" />
+    <link href="Styles/wickedpicker.min.css" rel="stylesheet" />
+    <link href="Styles/admin.css" rel="stylesheet" />
+    <link href="Styles/jquery.contextMenu.css" rel="stylesheet" />
+    <script src="../DashboardCss/jquery.min.js"></script>
+    <script src="../Scripts/jquery.contextMenu.js"></script>
+
+
+</head>
+
+<body class="nav-md">
+    <form id="Form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" EnablePageMethods="true" runat="server"></asp:ScriptManager>
+        <input type="hidden" runat="server" id="lblReqID" />
+        <input type="hidden" runat="server" id="lblServiceType" />
+        <input type="hidden" runat="server" id="lblReqType" />
+        <asp:Button ID="btnReqSubmit" UseSubmitBehavior="false" runat="server" OnClick="btnReqSubmit_Click" Style="display: none" />
+		<input type="hidden" runat="server" id="lblphrreqID" />
+        <input type="hidden" runat="server" id="lblphrreqtype" />
+        <input type="hidden" runat="server" id="lblphrbillno" />
+		<asp:Button ID="btnphrReqSubmit" UseSubmitBehavior="false" runat="server" OnClick="btnphrReqSubmit_Click" Style="display: none" />
+        <div class="container body">
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <nav>
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav">
+                            <li class="">
+                                <a class="user-logo">
+                                    <img src='<%= this.ResolveClientUrl("Images/logo.png") %>' alt=""></a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="row" style="margin: 14px 0px 0px 210px">
+                        <div class="col-sm-5">
+
+                            <div class="search">
+                                <span class="fa fa-search"></span>
+                                <asp:TextBox placeholder="Search pages" runat="server" AutoPostBack="true" OnTextChanged="txt_Search_TextChanged" ID="txt_Search"></asp:TextBox>
+                                <asp:AutoCompleteExtender ID="AutoCompleteExtender1"
+                                    runat="server"
+                                    DelimiterCharacters=""
+                                    Enabled="True"
+                                    ServicePath="~/MedWebservices/AutocompleteLinks.asmx"
+                                    ServiceMethod="GetCompletionList"
+                                    TargetControlID="txt_Search"
+                                    MinimumPrefixLength="1"
+                                    CompletionInterval="10"
+                                    EnableCaching="true"
+                                    CompletionSetCount="12">
+                                </asp:AutoCompleteExtender>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="pull-right">
+                                <a class="user-profile">
+                                    <i class="fa fa-user-plus fa-lg" style="color: #e55353; font-size: 16px" aria-hidden="true"></i></a>
+                                <asp:Label runat="server" ID="lbl_activeuser" ForeColor="White"></asp:Label>
+                                <asp:Label runat="server" ID="lbl_ActiveDept" ForeColor="White"></asp:Label>
+                                <input type="hidden" runat="server" id="lbl_notify" />
+                                <input type="hidden" runat="server" id="lbl_Role" />
+                                <input type="hidden" runat="server" id="lbluser" />
+								<input type="hidden" runat="server" id="Dept" />
+								<input type="hidden" runat="server" id="phrrequestenable" />
+								<input type="hidden" runat="server" id="phrapproveenable" />
+                                <input type="hidden" runat="server" id="n_count" />
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <ul class="nav navbar-nav" style="margin-top: -18px">
+                                <li role="presentation" class="dropdown">
+                                    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-envelope fa-lg" style="color: #e6fbf4"></i>
+                                        <span id="alert_count" class="badge bg-yellow"></span>
+                                        <span style="display: none" id="connID"></span>
+                                    </a>
+                                    <ul id="alert_msg" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                        <asp:Literal ID="lit_alert" runat="server"></asp:Literal>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-4 pull-right">
+                            <div class="pull-right">
+                                <span style="padding: 0px 0px 0px 10px"><i class="fa fa-book fa-lg" style="color: #c7f87c;" aria-hidden="true"></i>
+                                    <asp:LinkButton ID="link_dashboard" runat="server" CssClass="cus-btn-color" Text="Dashboard" OnClick="lnkdashboard_Click"></asp:LinkButton></span>
+                                <span style="padding: 0px 0px 0px 10px"><i class="fa fa-key fa-lg" style="color: pink;" aria-hidden="true"></i>
+                                    <asp:LinkButton ID="link_pswd" runat="server" CssClass="cus-btn-color" Text="Password Change " OnClick="link_pswd_Click"></asp:LinkButton></span>
+                                <span style="padding: 0px 0px 0px 10px"><i class="fa fa-sign-out fa-lg" style="color: yellow;" aria-hidden="true"></i>
+                                    <asp:LinkButton ID="link_btn" runat="server" CssClass="cus-btn-color" Text="Logout" OnClick="lnkLogout_Click"></asp:LinkButton>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /top navigation -->
+            <div class="main_container">
+                <div id="divContainer">
+
+                    <asp:HiddenField runat="server" ID="txtNickName" />
+                    <div id="divChat" class="chatRoom" style="display: none">
+                        <div class="title">
+                            Mediqura Chat Room [<span id='spanUser'></span>]
+                        </div>
+                        <div class="row">
+                            <div class="content col-sm-12">
+                                <div id="divChatWindow" class="chatWindow col-sm-6">
+                                </div>
+                                <div class="col-sm-6 chatWindow-user">
+                                    <ul id="divusers">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="messageBar col-sm-12">
+                                <div class="input-group input-grp-chat">
+                                    <span class="input-group-btn btn-group-chat">
+                                        <i class="fa fa-paperclip btnAttachment" id="btnAttachment" onclick="attachmentClick()"></i>
+
+                                        <asp:FileUpload Style="display: none" runat="server" ID="AttachFile" onchange="this.form.submit()" />
+                                    </span>
+                                    <div class="chatmsgbox" runat="server" id="txtMessage" contenteditable="true"></div>
+                                    <span class="input-group-btn btn-group-chat">
+                                        <i style="font-size: 20px; margin-right: 10px;" class="fa fa-send" id="btnSendMsg"></i>
+                                    </span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <input id="hdId" type="hidden" />
+                    <input id="hdUserName" type="hidden" />
+
+                </div>
+                <div class="col-md-3 left_col">
+                    <div class="left_col scroll-view">
+                        <div class="custom_menu">
+                            <div id="sidebar-menu" class=" main_menu_side hidden-print main_menu">
+                                <div class="menu_section">
+                                    <ul class="nav side-menu">
+                                        <asp:Repeater ID="rptCategories" runat="server" OnItemDataBound="rptMenu_OnItemBound">
+                                            <ItemTemplate>
+                                                <li class="main_menu_style"><a
+                                                    href='<%#Eval("Url") %>'><i class='<%#Eval("CssFont") %>'></i>
+                                                    <%#Eval("Title") %><span class='fa fa-chevron-down'>
+                                                    </span></a>
+                                                    <asp:Literal ID="ltrlSubMenu" runat="server"></asp:Literal>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </ul>
+                                </div>
+                                <div style="border: 0;" class="nav_title"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- page content -->
+
+                <div class="right_col custom_main " role="main">
+                    <div class="row">
+                        <div class="main-container">
+                            <asp:ContentPlaceHolder ID="Mediquraplaceholder" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+
+                <footer>
+                     <div class="pull-left color-foot">
+                        <i runat="server" id="massupdate" onclick="MassUpdateFunction()" style="color:red;cursor:pointer" class="fa fa-bell-o"></i>
+                    </div>
+                    <div class="pull-right color-foot">
+                        &nbsp; <a href="#" id="openChat"><span class="fa fa-paper-plane"></span>Chat</a><a href="#" id="closeChat" style="display: none"><span class="fa fa-paper-plane"></span>Chat</a>
+                    </div>
+                    <div class="pull-right color-foot">
+                        Powered By <a style="color: yellow" href="http://www.mobimp.com">Mobimp Services Pvt Ltd</a>
+                    </div>
+                    <div class="pull-left color-foot pad-lft">
+                        Copyright <a style="color: white">&copy; <asp:Label runat="server" ID="lblFinancial"></asp:Label>,  All Rights Reserved</a>
+                    </div>
+                   
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+            </div>
+        </div>
+    </form>
+
+</body>
+
+
+ 
+<script src='<%= this.ResolveClientUrl("/Scripts/ui/jquery.ui.core.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("/Scripts/ui/jquery.ui.widget.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("/Scripts/ui/jquery.ui.mouse.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("/Scripts/ui/jquery.ui.draggable.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("/Scripts/ui/jquery.ui.resizable.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("DashboardCss/bootstrap.min.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("DashboardCss/bootstrap-progressbar.min.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("DashboardCss/moment.min.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("DashboardCss/daterangepicker.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("DashboardCss/custom.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("Scripts/wickedpicker.min.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("Scripts/jQuery.print.js") %>'></script>
+
+<script src='<%= this.ResolveClientUrl("/Scripts/jquery.signalR-1.0.0.js") %>'></script>
+<script src='<%= this.ResolveClientUrl("/Styles/service.js") %>'></script>
+<!--Reference the autogenerated SignalR hub script. -->
+<script src='<%= this.ResolveClientUrl("/signalr/hubs") %>'></script>
+<script type="text/javascript">
+	var audio = new Audio('/sound/alert.mp3');
+	var phraudio = new Audio('/sound/definite.mp3');
+    var audiogroup = new Audio('');
+    var chatHub = $.connection.chatHub;
+    $(function () {
+
+        $("#divChat").hide();
+
+
+        registerClientMethods(chatHub);
+
+        // Start Hub
+        $.connection.hub.start().done(function () {
+
+            registerEvents(chatHub)
+
+        });
+
+    });
+
+
+    function registerEvents(chatHub) {
+
+
+        var name = $("#txtNickName").val();
+        var notify = $('#lbl_notify').val();
+        var Role = $('#lbl_Role').val();
+        var Dept = $('#Dept').val();
+        var phrrequestenable = $('#phrrequestenable').val();
+        var phrapproveenable = $('#phrapproveenable').val();
+
+
+        if (name.length > 0)
+        {
+
+        	if (Dept == "47") {
+        		chatHub.server.phrconnect(name, notify, phrrequestenable, phrapproveenable, Role);
+        	}
+        		chatHub.server.connect(name, notify, Role);
+        	
+        }
+
+
+
+        $('#btnSendMsg').click(function () {
+
+            var msg = document.getElementById('txtMessage').innerHTML;
+            if (msg.length > 0) {
+
+                var userName = $('#hdUserName').val();
+                chatHub.server.sendMessageToAll(userName, msg, "ALL", "0", "0", "0");
+                document.getElementById('txtMessage').innerHTML = "";
+            }
+        });
+
+
+        $("#txtNickName").keypress(function (e) {
+            if (e.which == 13) {
+                $("#btnStartChat").click();
+            }
+        });
+
+        $("#txtMessage").keypress(function (e) {
+            if (e.which == 13) {
+                $('#btnSendMsg').click();
+            }
+        });
+
+
+    }
+    function attachmentClick() {
+        $('#AttachFile').click();
+    }
+    function registerClientMethods(chatHub) {
+
+        // Calls when user successfully logged in
+        chatHub.client.onConnected = function (id, userName, allUsers, messages, alert) {
+
+
+            $('#hdId').val(id);
+            $('#hdUserName').val(userName);
+            $('#spanUser').html(userName);
+
+            // Add All Users
+            for (i = 0; i < allUsers.length; i++) {
+
+                AddUser(chatHub, allUsers[i].ConnectionId, allUsers[i].UserName);
+            }
+
+            // Add Existing Messages
+            for (i = 0; i < messages.length; i++) {
+
+                AddMessage(messages[i].UserName, messages[i].Message);
+            }
+
+
+            addAlert();
+
+
+
+        }
+
+        // On New User Connected
+        chatHub.client.onNewUserConnected = function (id, name) {
+
+            AddUser(chatHub, id, name);
+        }
+
+
+        // On User Disconnected
+        chatHub.client.onUserDisconnected = function (id, userName) {
+
+            $('#' + id).remove();
+
+            var ctrId = 'private_' + id;
+            $('#' + ctrId).remove();
+
+
+            var disc = $('<div class="disconnect">"' + userName + '" logged off.</div>');
+
+            $(disc).hide();
+            $('#divusers').prepend(disc);
+            $(disc).fadeIn(200).delay(2000).fadeOut(200);
+
+        }
+
+        chatHub.client.messageReceived = function (userName, message) {
+
+            AddMessage(userName, message);
+
+        }
+        chatHub.client.UpdateMessage = function (userName, message) {
+            audio.play();
+            if (confirm(userName + " : " + message +"\n Press ok to logout or cancel to continue work.")) {
+                document.getElementById("<%=link_btn.ClientID %>").click();
+            } 
+
+        }
+        chatHub.client.receiveMessage = function (msgFrom, msg, senderid, no, ID, Bill) {
+        	
+        		audio.play();
+                 var count = document.getElementById('alert_count').innerHTML;
+            if (count == "") {
+                count = 0;
+            }
+            count = parseInt(count) + 1;
+            document.getElementById('alert_count').innerHTML = count;
+            var alertmsg = " <li>" +
+                "<a onClick=\"openAlert('" + ID + "','" + Bill + "','" + no+"')\"> <span>" + msgFrom + "</span>" +
+                "<span style='position:absolute !important' class=\"time\">Now</span>" +
+                "<span class='message'>" + msg +
+                "</span> </a ></li > ";
+            $('#alert_msg').prepend(alertmsg);
+        }
+
+        chatHub.client.receiveMessageToPHR = function (msgFrom, msg, senderid, no, ID, Bill) {
+        	
+        		phraudio.play();
+        	
+        	
+        	var count = document.getElementById('alert_count').innerHTML;
+        	if (count == "") {
+        		count = 0;
+        	}
+        	count = parseInt(count) + 1;
+        	document.getElementById('alert_count').innerHTML = count;
+        	var alertmsg = " <li>" +
+                "<a onClick=\"openPhrAlert('" + ID + "','" + Bill + "','" + no + "')\"> <span>" + msgFrom + "</span>" +
+                "<span style='position:absolute !important' class=\"time\">Now</span>" +
+                "<span class='message'>" + msg +
+                "</span> </a ></li > ";
+        	$('#alert_msg').prepend(alertmsg);
+        }
+
+
+        chatHub.client.sendPrivateMessage = function (windowId, fromUserName, message) {
+            audio.play();
+            var ctrId = 'private_' + windowId;
+
+
+            if ($('#' + ctrId).length == 0) {
+
+                createPrivateChatWindow(chatHub, windowId, ctrId, fromUserName);
+
+            }
+
+            $('#' + ctrId).find('#divMessage').append('<div class="message"><span class="userName">' + fromUserName + '</span>: ' + message + '</div>');
+
+            // set scrollbar
+            var height = $('#' + ctrId).find('#divMessage')[0].scrollHeight;
+            $('#' + ctrId).find('#divMessage').scrollTop(height);
+
+        }
+
+    }
+    function addAlert() {
+        var count = $('#n_count').val();
+        document.getElementById('alert_count').innerHTML = count;
+    }
+
+
+    function AddUser(chatHub, id, name) {
+
+        var userId = $('#hdId').val();
+
+        var code = "";
+
+        if (userId == id) {
+
+            //code = $('<div class="loginUser">' + name + "</div>");
+
+        }
+        else {
+
+            code = $('<li id="' + id + '" class="user" >' + name + '</li>');
+
+            $(code).dblclick(function () {
+
+                var id = $(this).attr('id');
+
+                if (userId != id)
+                    OpenPrivateChatWindow(chatHub, id, name);
+
+            });
+        }
+
+        $("#divusers").append(code);
+
+    }
+
+    function AddMessage(userName, message) {
+        $('#divChatWindow').append('<div class="message"><span class="userName">' + userName + '</span>: ' + message + '</div>');
+
+        var height = $('#divChatWindow')[0].scrollHeight;
+        $('#divChatWindow').scrollTop(height);
+    }
+
+    function OpenPrivateChatWindow(chatHub, id, userName) {
+
+        var ctrId = 'private_' + id;
+
+        if ($('#' + ctrId).length > 0) return;
+
+        createPrivateChatWindow(chatHub, id, ctrId, userName);
+
+    }
+
+    function createPrivateChatWindow(chatHub, userId, ctrId, userName) {
+        var div = '<div id="' + ctrId + '" class="ui-widget-content draggable private-chat" rel="0">' +
+            ' <div class="header">' +
+            ' <div  style="float:right;">' +
+            '  <i id="imgDelete" class="fa fa-remove"  style="cursor:pointer;"></i>' +
+            ' </div>' +
+            '<span class="selText" rel="0">' + userName + '</span>' +
+            '  </div>' +
+            '  <div class="row">' +
+            '  <div id="divMessage" class="messageArea">' +
+
+            '    </div>' +
+            '<div class="messageBar col-sm-12">' +
+            '<div class="input-group input-grp-chat">' +
+            '<textarea class="chatmsgbox" id="txtPrivateMessage" rows="1" placeholder="Type your message..."></textarea>' +
+            ' <span class="input-group-btn btn-group-chat">' +
+            '  <i style="font-size: 20px; margin-right: 10px;" class="fa fa-send" id="btnSendMessage"></i>' +
+            ' </span>' +
+            ' </div>' +
+            ' </div>' +
+            '</div>' +
+            ' </div>'
+
+        var $div = $(div);
+
+        // DELETE BUTTON IMAGE
+        $div.find('#imgDelete').click(function () {
+            $('#' + ctrId).remove();
+        });
+
+        // Send Button event
+        $div.find("#btnSendMessage").click(function () {
+
+            $textBox = $div.find("#txtPrivateMessage");
+            var msg = $textBox.val();
+            if (msg.length > 0) {
+
+                chatHub.server.sendPrivateMessage(userId, msg);
+                $textBox.val('');
+            }
+        });
+
+        // Text Box event
+        $div.find("#txtPrivateMessage").keypress(function (e) {
+            if (e.which == 13) {
+                $div.find("#btnSendMessage").click();
+            }
+        });
+
+        AddDivToContainer($div);
+
+    }
+
+    function AddDivToContainer($div) {
+        $('#divContainer').prepend($div);
+
+        $div.draggable({
+
+            handle: ".header",
+            stop: function () {
+
+            }
+        });
+
+    }
+
+
+    function pushMessage(message, ID) {
+
+        chatHub.server.sendMessageToAll($('#lbluser').val(), message, "ALERT", "1", ID, 1)
+    }
+    function pushMessageToPhar(message,group,reqtype,ID) {
+
+    	chatHub.server.sendMessageToPHR($('#lbluser').val(), message, group, reqtype, ID, 1)
+    }
+    function pushMessageToCounter(Type, group, message, ID,serviceType, Bill) {
+
+        chatHub.server.sendMessageToAll(Type, message, group, serviceType, ID, Bill)
+    }
+   
+
+    function MassUpdateFunction() {
+    
+    var message = prompt("Please enter your message");
+    if (message == null || message == "") {
+            
+        } else {
+        chatHub.server.sendMessageToAll("Admin", message, "UPDATE", "", "", "")
+    }
+   
+}
+
+    function openAlert(ID, BillID,servicetype) {
+        document.getElementById('lblReqID').value = ID;
+        document.getElementById('lblReqType').value = BillID;
+        document.getElementById('lblServiceType').value = servicetype;
+        
+        document.getElementById("<%=btnReqSubmit.ClientID %>").click();
+    }
+
+	function openPhrAlert(ID, BillID, reqtype) {
+		document.getElementById('lblphrreqID').value = ID;
+		document.getElementById('lblphrreqtype').value = reqtype;
+		document.getElementById('lblphrbillno').value = BillID;
+
+		document.getElementById("<%=btnphrReqSubmit.ClientID %>").click();
+	}
+
+    $(document).ready(function () {
+        var flag = $('#isNotified').val();
+        var msg = $('#remarks').val();
+
+        if (flag == 1) {
+            pushMessage(msg);
+            $('#isNotified').val("0");
+        }
+    });
+    $(function () {
+
+        $("#openChat").click(function () {
+
+            var audiogroup = new Audio('/sound/alert.mp3');
+            $("#divChat").show();
+            $("#openChat").hide();
+            $("#closeChat").show();
+
+        });
+
+        $("#closeChat").click(function () {
+
+            var audiogroup = new Audio('');
+            $("#divChat").hide();
+            $("#openChat").show();
+            $("#closeChat").hide();
+
+        });
+    })
+
+
+</script>
+
+
+</html>
+
+
+
+
+

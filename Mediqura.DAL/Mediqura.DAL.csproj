@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B81552C5-B198-4C53-B900-5F51148F530B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mediqura.DAL</RootNamespace>
+    <AssemblyName>Mediqura.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdmissionDA\AdmissionDA.cs" />
+    <Compile Include="AdmissionDA\CurrentAdmissionListDA.cs" />
+    <Compile Include="AdmissionDA\DischargeIntimationDA.cs" />
+    <Compile Include="AdmissionDA\DueCollectionDA.cs" />
+    <Compile Include="AdmissionDA\IPCreditMasterDA.cs" />
+    <Compile Include="AdmissionDA\IPServiceRecordDA.cs" />
+    <Compile Include="AdmissionDA\PatAdmToWardDA.cs" />
+    <Compile Include="CommonDA\ApplicationDA.cs" />
+    <Compile Include="CommonDA\MasterLookupDA.cs" />
+    <Compile Include="CommonDA\PageControlDA.cs" />
+    <Compile Include="DataAccessObjectBase.cs" />
+    <Compile Include="DatabaseConstants.cs" />
+    <Compile Include="MedAccount\AccountDA.cs" />
+    <Compile Include="MedAccount\InsuranceReceivableDA.cs" />
+    <Compile Include="MedAccount\LabAcntTranDA.cs" />
+    <Compile Include="MedAccount\LabIncomeCollectionDA.cs" />
+    <Compile Include="MedAccount\LedgerBookDA.cs" />
+    <Compile Include="MedAccount\RecdTransactionDA.cs" />
+    <Compile Include="MedAccount\TransactionDefautDA.cs" />
+    <Compile Include="MedAnalytics\SaleAnalyticsDA.cs" />
+    <Compile Include="MedBankDA\BankMasterDA.cs" />
+    <Compile Include="MedBankDA\BankTypeDA.cs" />
+    <Compile Include="MedBillDA\ActivityTrackerDA.cs" />
+    <Compile Include="MedBillDA\DepositDA.cs" />
+    <Compile Include="MedBillDA\DiscountDA.cs" />
+    <Compile Include="MedBillDA\DoctorWiseDailyCollectionDA.cs" />
+    <Compile Include="MedBillDA\FinalBillDA.cs" />
+    <Compile Include="MedBillDA\IPDrugIndentDA.cs" />
+    <Compile Include="MedBillDA\LabDueCollectionDA.cs" />
+    <Compile Include="MedBillDA\OPDbillingDA.cs" />
+    <Compile Include="MedBillDA\RefundDA.cs" />
+    <Compile Include="MedBillDA\TestWiseDA.cs" />
+    <Compile Include="MedDashboardDA\CompanyDashboardDA.cs" />
+    <Compile Include="MedDashboardDA\DashboardUrlMapDA.cs" />
+    <Compile Include="MedEmergencyDA\EmrgAdmissionDA.cs" />
+    <Compile Include="MedGenStoreDA\GenAlikeDA.cs" />
+    <Compile Include="MedGenStoreDA\GenDeptStockAvailDA.cs" />
+    <Compile Include="MedGenStoreDA\GenDeptWiseUsedItemDA.cs" />
+    <Compile Include="MedGenStoreDA\GenIndentApprovedDA.cs" />
+    <Compile Include="MedGenStoreDA\GenIndentDA.cs" />
+    <Compile Include="MedGenStoreDA\GENindentCollectionDA.cs" />
+    <Compile Include="MedGenStoreDA\GenInterStockTransferDA.cs" />
+    <Compile Include="MedGenStoreDA\GenItemGroupDA.cs" />
+    <Compile Include="MedGenStoreDA\GenItemSubGroupDA.cs" />
+    <Compile Include="MedGenStoreDA\GenMfgCompanyMasterDA.cs" />
+    <Compile Include="MedGenStoreDA\GENRackMasterDA.cs" />
+    <Compile Include="MedGenStoreDA\GenStockStatusDA.cs" />
+    <Compile Include="MedGenStoreDA\GenStoreDA.cs" />
+    <Compile Include="MedGenStoreDA\GenStoreItemMasterDA.cs" />
+    <Compile Include="MedGenStoreDA\GenSupplierTypeMasterDA.cs" />
+    <Compile Include="MedGenStoreDA\GenUnitMasterDA.cs" />
+    <Compile Include="MedGenStoreDA\POApprovalDA.cs" />
+    <Compile Include="MedGenStoreDA\POCrossCheckDA.cs" />
+    <Compile Include="MedGenStoreDA\VendorReturnDA.cs" />
+    <Compile Include="MedHouseKeepingDA\BedStatusDA.cs" />
+    <Compile Include="MedHrDA\DutyRosterDA.cs" />
+    <Compile Include="MedHrDA\DutyRosterTypeDA.cs" />
+    <Compile Include="MedHrDA\EmpFileDA.cs" />
+    <Compile Include="MedHrDA\EmployeeDA.cs" />
+    <Compile Include="MedHrDA\GradeDesgnDA.cs" />
+    <Compile Include="MedHrDA\HRControllManagerDA.cs" />
+    <Compile Include="MedHrDA\LeaveApplicationDA.cs" />
+    <Compile Include="MedHrDA\LeaveTypeDA.cs" />
+    <Compile Include="MedHrDA\RunnerDetailsDA.cs" />
+    <Compile Include="MedicationDA\MedicationDA.cs" />
+    <Compile Include="MedicationDA\NurseRecordSheetDA.cs" />
+    <Compile Include="MedLab\InvDashboardDA.cs" />
+    <Compile Include="MedLab\LabReportCollectionDA.cs" />
+    <Compile Include="MedLab\OutsourceManagerDA.cs" />
+    <Compile Include="MedLab\RadioLabReportVerificationDA.cs" />
+    <Compile Include="MedLab\LabtestCommissionDA.cs" />
+    <Compile Include="MedLab\RadiologyReportDA.cs" />
+    <Compile Include="MedNurseDA\DailyNursingAssessmentDA.cs" />
+    <Compile Include="MedNurseDA\IntakeOutputChartDA.cs" />
+    <Compile Include="MedNurseDA\NurseNotesDA.cs" />
+    <Compile Include="MedNurseDA\NurseRoasterDA.cs" />
+    <Compile Include="MedNurseDA\NurseSupervisorDA.cs" />
+    <Compile Include="MedNurseDA\NursingStationDA.cs" />
+    <Compile Include="MedNurseDA\NurseStationDA.cs" />
+    <Compile Include="MedNurseDA\PatientSugarChartDA.cs" />
+    <Compile Include="MedOPDDA\DocAppoinmentDA.cs" />
+    <Compile Include="MedNurseDA\InvestigationChartDA.cs" />
+    <Compile Include="MedOPDDA\PatientDiagnosisDA.cs" />
+    <Compile Include="MedPharDA\EmgDrugIssueDA.cs" />
+    <Compile Include="MedPharDA\ItemSalesTrackerDA.cs" />
+    <Compile Include="MedPharDA\PharIPIssueDA.cs" />
+    <Compile Include="MedPharDA\PHRAccountDA.cs" />
+    <Compile Include="MedPharDA\PhrDueCollectionDA.cs" />
+    <Compile Include="MedPharDA\PHRRecdTransactionDA.cs" />
+    <Compile Include="MedPharDA\Phr_InterStockTransferDA.cs" />
+    <Compile Include="MedPharDA\VendorPaymentDA.cs" />
+    <Compile Include="MedStore\CondemnReqApprovedDA.cs" />
+    <Compile Include="MedStore\EmgReturnDA.cs" />
+    <Compile Include="MedStore\IndentRecvHandOverDA.cs" />
+    <Compile Include="MedStore\IndentRequestDA.cs" />
+    <Compile Include="MedStore\IndentStatusDA.cs" />
+    <Compile Include="MedStore\IndentToMainDA.cs" />
+    <Compile Include="MedStore\IPReturnDA.cs" />
+    <Compile Include="MedStore\ItemGroupMasterDA.cs" />
+    <Compile Include="MedStore\ItemMasterDA.cs" />
+    <Compile Include="MedStore\ItemSubGroupMasterDA.cs" />
+    <Compile Include="MedStore\MedStoreIndentDA.cs" />
+    <Compile Include="MedStore\MedStore_ItemMasterDA.cs" />
+    <Compile Include="MedStore\MfgCompanyTypeMasterDA.cs" />
+    <Compile Include="MedStore\OPReturnDA.cs" />
+    <Compile Include="MedStore\PhrAlikeDA.cs" />
+    <Compile Include="MedStore\PurchaseRequisitionDA.cs" />
+    <Compile Include="MedStore\RackMasterDA.cs" />
+    <Compile Include="MedStore\StockGRNDA.cs" />
+    <Compile Include="MedStore\StockIssueDA.cs" />
+    <Compile Include="MedStore\StockReturnDA.cs" />
+    <Compile Include="MedStore\StockSaleProfitStatusDA.cs" />
+    <Compile Include="MedStore\StockStatusDA.cs" />
+    <Compile Include="MedStore\StoreUnitMasterDA.cs" />
+    <Compile Include="MedStore\SupplierSaleTrackerDA.cs" />
+    <Compile Include="MedStore\SupplierTypeMasterDA.cs" />
+    <Compile Include="MedStore\TransactionSummaryDA.cs" />
+    <Compile Include="MedStore\UtilizationReportDA.cs" />
+    <Compile Include="MedStore\VendorStockReturnDA.cs" />
+    <Compile Include="MedUtilityDA\AddPageMasterDA.cs" />
+    <Compile Include="MedUtilityDA\AppoinmentScheduleDA.cs" />
+    <Compile Include="MedUtilityDA\RadiologyHeaderMasterDA.cs" />
+    <Compile Include="MedUtilityDA\RoomDA.cs" />
+    <Compile Include="MedUtilityDA\BedMasterDA.cs" />
+    <Compile Include="MedUtilityDA\BlockMasterDA.cs" />
+    <Compile Include="MedUtilityDA\CommissionMasterDA.cs" />
+    <Compile Include="MedUtilityDA\CommonGroupMasterDA.cs" />
+    <Compile Include="MedUtilityDA\CommonSubGroupMasterDA.cs" />
+    <Compile Include="MedUtilityDA\CountryDA.cs" />
+    <Compile Include="MedUtilityDA\DepartmentTypeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\DesignationTypeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\DischargeDA.cs" />
+    <Compile Include="MedUtilityDA\DistrictDA.cs" />
+    <Compile Include="MedUtilityDA\DocTaxDA.cs" />
+    <Compile Include="MedUtilityDA\DoctorMasterDA.cs" />
+    <Compile Include="MedUtilityDA\DocTypeDA.cs" />
+    <Compile Include="MedUtilityDA\EmpDocTypeDA.cs" />
+    <Compile Include="MedUtilityDA\EmployeeTypeDA.cs" />
+    <Compile Include="MedUtilityDA\EmpGradeDA.cs" />
+    <Compile Include="MedUtilityDA\ExpiryReportMasterDA.cs" />
+    <Compile Include="MedUtilityDA\FloorMasterDA.cs" />
+    <Compile Include="MedUtilityDA\GuestDocDA.cs" />
+    <Compile Include="MedUtilityDA\HospitalTypeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\ICDcodecategoryDA.cs" />
+    <Compile Include="MedUtilityDA\ICDCodeRangeDA.cs" />
+    <Compile Include="MedUtilityDA\LabCommentMakerDA.cs" />
+    <Compile Include="MedUtilityDA\LabGroupTypeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\LabRangeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\LabSampleCollectionDA.cs" />
+    <Compile Include="MedUtilityDA\LabSampleDA.cs" />
+    <Compile Include="MedUtilityDA\LabServiceMasterDA.cs" />
+    <Compile Include="MedUtilityDA\LabSubGroupTypeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\LabTemplateDA.cs" />
+    <Compile Include="MedUtilityDA\LabUnitDA.cs" />
+    <Compile Include="MedUtilityDA\MachineMasterDA.cs" />
+    <Compile Include="MedUtilityDA\MethodMasterDA.cs" />
+    <Compile Include="MedUtilityDA\MinorOTServicesPayOutDA.cs" />
+    <Compile Include="MedUtilityDA\OccupationDA.cs" />
+    <Compile Include="MedUtilityDA\OPDEmergencyPayOutDA.cs" />
+    <Compile Include="MedUtilityDA\OTRoleDA.cs" />
+    <Compile Include="MedUtilityDA\OTTheaterDA.cs" />
+    <Compile Include="MedUtilityDA\OutsidePatientDA.cs" />
+    <Compile Include="MedUtilityDA\PackageMasterDA.cs" />
+    <Compile Include="MedUtilityDA\PackageWiseServiceDA.cs" />
+    <Compile Include="MedUtilityDA\PatientTypeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\PaymentTypeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\PhrUnitMasterDA.cs" />
+    <Compile Include="MedUtilityDA\RadiologyLabServicePayOutMSTDA.cs" />
+    <Compile Include="MedUtilityDA\RadiologyReportMasterDA.cs" />
+    <Compile Include="MedUtilityDA\ReferalDA.cs" />
+    <Compile Include="MedUtilityDA\SalutationMasterDA.cs" />
+    <Compile Include="MedUtilityDA\SampleContainerDA.cs" />
+    <Compile Include="MedUtilityDA\SeasonTypeDA.cs" />
+    <Compile Include="MedUtilityDA\ServiceDA.cs" />
+    <Compile Include="MedUtilityDA\ServiceMappingMasterDA.cs" />
+    <Compile Include="MedUtilityDA\StaffCategoryDA.cs" />
+    <Compile Include="MedUtilityDA\StateDA.cs" />
+    <Compile Include="MedUtilityDA\StockTypeMasterDA.cs" />
+    <Compile Include="MedUtilityDA\TestCenterMasterDA.cs" />
+    <Compile Include="MedUtilityDA\TPAMasterDA.cs" />
+    <Compile Include="MedUtilityDA\UploadFileDA.cs" />
+    <Compile Include="MedUtilityDA\WardMasterDA.cs" />
+    <Compile Include="MIS\MisReportDA.cs" />
+    <Compile Include="MIS\NursingCareDA.cs" />
+    <Compile Include="MIS\ServicesReportDA.cs" />
+    <Compile Include="MIS\StaffFundDA.cs" />
+    <Compile Include="MSBDA\DependentDA.cs" />
+    <Compile Include="MSBDA\DocumentUploaderDA.cs" />
+    <Compile Include="MSBDA\EmployeeTypeDA.cs" />
+    <Compile Include="MSBDA\MsbBedAllotDA.cs" />
+    <Compile Include="OTDA\AnesthesiaDA.cs" />
+    <Compile Include="OTDA\OTRegnDA.cs" />
+    <Compile Include="OTDA\OTSchedulingDA.cs" />
+    <Compile Include="OTDA\OTStatusDA.cs" />
+    <Compile Include="OTDA\PatientConsentTypeDA.cs" />
+    <Compile Include="MSBDA\PatientDA\PatientDocumentDA.cs" />
+    <Compile Include="MSBDA\PatientDA\RegistrationDA.cs" />
+    <Compile Include="MedGenStoreDA\POCreationDA.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReagentMasterDA.cs" />
+    <Compile Include="SqlHelper.cs" />
+    <Compile Include="SqlParameterHelper.cs" />
+    <Compile Include="UserDA\AddRolesDA.cs" />
+    <Compile Include="UserDA\AddUsersDA.cs" />
+    <Compile Include="UserDA\ChangePswdDA.cs" />
+    <Compile Include="UserDA\UserDA.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mediqura.CommonData\Mediqura.CommonData.csproj">
+      <Project>{c30ad028-9d08-46ba-8bd1-146e45157d37}</Project>
+      <Name>Mediqura.CommonData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mediqura.Utility\Mediqura.Utility.csproj">
+      <Project>{5b95a665-958a-46dc-9009-2c91d60da37e}</Project>
+      <Name>Mediqura.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Gen\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02849E73-113B-408A-8CF7-68B9B9BFBD9C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mediqura.BOL</RootNamespace>
+    <AssemblyName>Mediqura.BOL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdmissionBO\AdmissionBO.cs" />
+    <Compile Include="AdmissionBO\CurrentAdmissionListBO.cs" />
+    <Compile Include="AdmissionBO\DischargeIntimationBO.cs" />
+    <Compile Include="AdmissionBO\DueCollectionBO.cs" />
+    <Compile Include="AdmissionBO\IPCreditMasterBO.cs" />
+    <Compile Include="AdmissionBO\IPServiceRecordBO.cs" />
+    <Compile Include="AdmissionBO\PatAdmToWardBO.cs" />
+    <Compile Include="CommonBO\ApplicationBO.cs" />
+    <Compile Include="CommonBO\DisctrictBO.cs" />
+    <Compile Include="CommonBO\MasterLookupBO.cs" />
+    <Compile Include="CommonBO\PageControlBO.cs" />
+    <Compile Include="MedAccount\AccountBO.cs" />
+    <Compile Include="MedAccount\InsuranceReceivableBO.cs" />
+    <Compile Include="MedAccount\LabAcntTranBO.cs" />
+    <Compile Include="MedAccount\LabIncomeCollectionBO.cs" />
+    <Compile Include="MedAccount\LedgerBookBO.cs" />
+    <Compile Include="MedAccount\RecdTransactionBO.cs" />
+    <Compile Include="MedAccount\TransactionDefaultBO.cs" />
+    <Compile Include="MedAnalytics\SalesAnalyticsBO.cs" />
+    <Compile Include="MedBankBO\BankMasterBO.cs" />
+    <Compile Include="MedBankBO\BankTypeBO.cs" />
+    <Compile Include="MedBillBO\ActivityTrackerBO.cs" />
+    <Compile Include="MedBillBO\DepositBO.cs" />
+    <Compile Include="MedBillBO\DiscountBO.cs" />
+    <Compile Include="MedBillBO\DoctorWiseDailyCollectionBO.cs" />
+    <Compile Include="MedBillBO\FInalBillBO.cs" />
+    <Compile Include="MedBillBO\IPDrugIndentBO.cs" />
+    <Compile Include="MedBillBO\LabDueCollectionBO.cs" />
+    <Compile Include="MedBillBO\OPDbillingBO.cs" />
+    <Compile Include="MedBillBO\RefundBO.cs" />
+    <Compile Include="MedBillBO\TestWiseBO.cs" />
+    <Compile Include="MedDashboardBO\CompanyDashboardBO.cs" />
+    <Compile Include="MedDashboardBO\DashboardUrlMapBO.cs" />
+    <Compile Include="MedEmergencyBO\EmrgAdmissionBO.cs" />
+    <Compile Include="MedGenStoreBO\GenAlikeBO.cs" />
+    <Compile Include="MedGenStoreBO\GenDeptStockAvailBO.cs" />
+    <Compile Include="MedGenStoreBO\GenDeptWiseUsedItemBO.cs" />
+    <Compile Include="MedGenStoreBO\GenIndentApprovedBO.cs" />
+    <Compile Include="MedGenStoreBO\GenIndentBO.cs" />
+    <Compile Include="MedGenStoreBO\GENindentCollectionBO.cs" />
+    <Compile Include="MedGenStoreBO\GenInterStockTransferBO.cs" />
+    <Compile Include="MedGenStoreBO\GenItemGroupBO.cs" />
+    <Compile Include="MedGenStoreBO\GenItemMasterBO.cs" />
+    <Compile Include="MedGenStoreBO\GenItemSubGroupBO.cs" />
+    <Compile Include="MedGenStoreBO\GenMfgCompanyMasterBO.cs" />
+    <Compile Include="MedGenStoreBO\GENRackMasterBO.cs" />
+    <Compile Include="MedGenStoreBO\GenStockStatusBO.cs" />
+    <Compile Include="MedGenStoreBO\GenStoreBO.cs" />
+    <Compile Include="MedGenStoreBO\GenSupplierTypeMasterBO.cs" />
+    <Compile Include="MedGenStoreBO\GenUnitMasterBO.cs" />
+    <Compile Include="MedGenStoreBO\POApprovalBO.cs" />
+    <Compile Include="MedGenStoreBO\POCreationBO.cs" />
+    <Compile Include="MedGenStoreBO\POCrossCheckBO.cs" />
+    <Compile Include="MedGenStoreBO\VendorReturnBO.cs" />
+    <Compile Include="MedHouseKeepingBO\BedStatusBO.cs" />
+    <Compile Include="MedHrBO\DutyRosterBO.cs" />
+    <Compile Include="MedHrBO\DutyRosterTypeBO.cs" />
+    <Compile Include="MedHrBO\EmpFileBO.cs" />
+    <Compile Include="MedHrBO\EmployeeBO.cs" />
+    <Compile Include="MedHrBO\GradeDesgnBO.cs" />
+    <Compile Include="MedHrBO\HRControllManagerBO.cs" />
+    <Compile Include="MedHrBO\LeaveApplicationBO.cs" />
+    <Compile Include="MedHrBO\LeaveTypeBO.cs" />
+    <Compile Include="MedHrBO\RunnerDetailsBO.cs" />
+    <Compile Include="MedicationBO\MedicationChartBO.cs" />
+    <Compile Include="MedicationBO\NurseRecordSheetBO.cs" />
+    <Compile Include="MedLabBO\InvDashboardMasterBO.cs" />
+    <Compile Include="MedLabBO\LabCenterCommissionBO.cs" />
+    <Compile Include="MedLabBO\LabOutsourceManagerBO.cs" />
+    <Compile Include="MedLabBO\LabReportCollectionBO.cs" />
+    <Compile Include="MedLabBO\RadioLabReportVerificationBO.cs" />
+    <Compile Include="MedLabBO\RadiologyReportBO.cs" />
+    <Compile Include="MedNurseBO\DailyNursingAssessmentBO.cs" />
+    <Compile Include="MedNurseBO\IntakeOutputChartBO.cs" />
+    <Compile Include="MedNurseBO\NurseNotesBO.cs" />
+    <Compile Include="MedNurseBO\NurseRoasterBO.cs" />
+    <Compile Include="MedNurseBO\NurseSupervisorBO.cs" />
+    <Compile Include="MedNurseBO\NursingStationBO.cs" />
+    <Compile Include="MedNurseBO\NurseStationBO.cs" />
+    <Compile Include="MedNurseBO\PatientSugarChartBO.cs" />
+    <Compile Include="MedOPDBO\DocAppointmentBO.cs" />
+    <Compile Include="MedNurseBO\InvestigationChartBO.cs" />
+    <Compile Include="MedOPDBO\PatientDiagnosisBO.cs" />
+    <Compile Include="MedPharBO\EmgDrugIssueBO.cs" />
+    <Compile Include="MedPharBO\ItemSalesTrackerBO.cs" />
+    <Compile Include="MedPharBO\Phar_IPIssueBO.cs" />
+    <Compile Include="MedPharBO\PHRAccountBO.cs" />
+    <Compile Include="MedPharBO\PhrDueCollectionBO.cs" />
+    <Compile Include="MedPharBO\PHRRecdTransactionBO.cs" />
+    <Compile Include="MedPharBO\Phr_InterStockTransferBO.cs" />
+    <Compile Include="MedPharBO\VendorPaymentBO.cs" />
+    <Compile Include="MedStore\CondemnReqApprovedBO.cs" />
+    <Compile Include="MedStore\EmgReturnBO.cs" />
+    <Compile Include="MedStore\IndentRecvHandOverBO.cs" />
+    <Compile Include="MedStore\IndentRequestTypeBO.cs" />
+    <Compile Include="MedStore\IndentStatusBO.cs" />
+    <Compile Include="MedStore\IndentToMainBO.cs" />
+    <Compile Include="MedStore\IPReturnBO.cs" />
+    <Compile Include="MedStore\ItemGroupMasterBO.cs" />
+    <Compile Include="MedStore\ItemMasterBO.cs" />
+    <Compile Include="MedStore\ItemSubGroupMasterBO.cs" />
+    <Compile Include="MedStore\MedStoreIndentBO.cs" />
+    <Compile Include="MedStore\MedStore_ItemMasterBO.cs" />
+    <Compile Include="MedStore\MfgCompanyTypeMasterBO.cs" />
+    <Compile Include="MedStore\OPReturnBO.cs" />
+    <Compile Include="MedStore\PhrAlikeBO.cs" />
+    <Compile Include="MedStore\PurchaseRequisitionBO.cs" />
+    <Compile Include="MedStore\RackMasterBO.cs" />
+    <Compile Include="MedStore\StockGRNBO.cs" />
+    <Compile Include="MedStore\StockIssueBO.cs" />
+    <Compile Include="MedStore\StockReturnBO.cs" />
+    <Compile Include="MedStore\StockSaleProfitStatusBO.cs" />
+    <Compile Include="MedStore\StockStatusBO.cs" />
+    <Compile Include="MedStore\StoreUnitMasterBO.cs" />
+    <Compile Include="MedStore\SupplierSaleTrackerBO.cs" />
+    <Compile Include="MedStore\SupplierTypeMasterBO.cs" />
+    <Compile Include="MedStore\TransactionSummaryBO.cs" />
+    <Compile Include="MedStore\UtilizationReportBO.cs" />
+    <Compile Include="MedStore\VendorStockReturnBO.cs" />
+    <Compile Include="MedUtilityBO\AddPageMasterBO.cs" />
+    <Compile Include="MedUtilityBO\AppoinmentScheduleBO.cs" />
+    <Compile Include="MedUtilityBO\RadiologyHeaderMasterBO.cs" />
+    <Compile Include="MedUtilityBO\RoomBO.cs" />
+    <Compile Include="MedUtilityBO\BedMasterBO.cs" />
+    <Compile Include="MedUtilityBO\BlockMasterBO.cs" />
+    <Compile Include="MedUtilityBO\CommissionMasterBO.cs" />
+    <Compile Include="MedUtilityBO\CommonGroupMasterBO.cs" />
+    <Compile Include="MedUtilityBO\CommonSubGroupMasterBO.cs" />
+    <Compile Include="MedUtilityBO\CountryBO.cs" />
+    <Compile Include="MedUtilityBO\DepartmentTypeMasterBO.cs" />
+    <Compile Include="MedUtilityBO\DesignationTypeMasterBO.cs" />
+    <Compile Include="MedUtilityBO\DischargeBO.cs" />
+    <Compile Include="MedUtilityBO\DistrictBO.cs" />
+    <Compile Include="MedUtilityBO\DocTaxBO.cs" />
+    <Compile Include="MedUtilityBO\DoctorMasterBO.cs" />
+    <Compile Include="MedUtilityBO\DocTypeBO.cs" />
+    <Compile Include="MedUtilityBO\EmpDocTypeBO.cs" />
+    <Compile Include="MedUtilityBO\EmpGradeBO.cs" />
+    <Compile Include="MedUtilityBO\EmployeeTypeBO.cs" />
+    <Compile Include="MedUtilityBO\ExpiryReportMasterBO.cs" />
+    <Compile Include="MedUtilityBO\FloorMasterBO.cs" />
+    <Compile Include="MedUtilityBO\GuestDocBO.cs" />
+    <Compile Include="MedUtilityBO\HospitalTypeMasterBO.cs" />
+    <Compile Include="MedUtilityBO\ICDcodecategoryBO.cs" />
+    <Compile Include="MedUtilityBO\ICDCodeRangeBO.cs" />
+    <Compile Include="MedUtilityBO\LabCommentMakerBO.cs" />
+    <Compile Include="MedUtilityBO\LabGroupTypeMasterBO.cs" />
+    <Compile Include="MedUtilityBO\LabRangeMasterBO.cs" />
+    <Compile Include="MedUtilityBO\LabSampleBO.cs" />
+    <Compile Include="MedUtilityBO\LabSampleCollctionBO.cs" />
+    <Compile Include="MedUtilityBO\LabServiceMasterBO.cs" />
+    <Compile Include="MedUtilityBO\LabSubGroupMasterBO.cs" />
+    <Compile Include="MedUtilityBO\LabTemplateBO.cs" />
+    <Compile Include="MedUtilityBO\LabUnitBO.cs" />
+    <Compile Include="MedUtilityBO\MachineMasterBO.cs" />
+    <Compile Include="MedUtilityBO\MethodMasterBO.cs" />
+    <Compile Include="MedUtilityBO\MinorOTServicesPayOutBO.cs" />
+    <Compile Include="MedUtilityBO\OccupationBO.cs" />
+    <Compile Include="MedUtilityBO\OPDEmergencyPayOutBO.cs" />
+    <Compile Include="MedUtilityBO\OTRoleBO.cs" />
+    <Compile Include="MedUtilityBO\OTTheaterBO.cs" />
+    <Compile Include="MedUtilityBO\OutsidePatientBO.cs" />
+    <Compile Include="MedUtilityBO\PackageMasterBO.cs" />
+    <Compile Include="MedUtilityBO\PackageWiseServiceBO.cs" />
+    <Compile Include="MedUtilityBO\PatientTypeMasterBO.cs" />
+    <Compile Include="MedUtilityBO\PaymentTypeMasterBO.cs" />
+    <Compile Include="MedUtilityBO\PhrUnitMasterBO.cs" />
+    <Compile Include="MedUtilityBO\RadiologyLabServiceMSTBO.cs" />
+    <Compile Include="MedUtilityBO\RadiologyReportMasterBO.cs" />
+    <Compile Include="MedUtilityBO\ReagentMasterBO.cs" />
+    <Compile Include="MedUtilityBO\ReferalBO.cs" />
+    <Compile Include="MedUtilityBO\SalutationMasterBO.cs" />
+    <Compile Include="MedUtilityBO\SampleContainerBO.cs" />
+    <Compile Include="MedUtilityBO\SeasonTypeBO.cs" />
+    <Compile Include="MedUtilityBO\ServiceBO.cs" />
+    <Compile Include="MedUtilityBO\ServiceMappingMasterBO.cs" />
+    <Compile Include="MedUtilityBO\StaffCategoryBO.cs" />
+    <Compile Include="MedUtilityBO\StateBO.cs" />
+    <Compile Include="MedUtilityBO\StockTypeMasterBO.cs" />
+    <Compile Include="MedUtilityBO\TestCenterMasterBO.cs" />
+    <Compile Include="MedUtilityBO\TPAMasterBO.cs" />
+    <Compile Include="MedUtilityBO\UploadFileBO.cs" />
+    <Compile Include="MedUtilityBO\WardTypeMasterBO.cs" />
+    <Compile Include="MIS\MisReportBO.cs" />
+    <Compile Include="MIS\NursingCareBO.cs" />
+    <Compile Include="MIS\ServicesReportBO.cs" />
+    <Compile Include="MIS\StaffFundBO.cs" />
+    <Compile Include="MSBBO\DependentBO.cs" />
+    <Compile Include="MSBBO\DocumentUploadBO.cs" />
+    <Compile Include="MSBBO\EmployeeTypeBO.cs" />
+    <Compile Include="MSBBO\MsbBedAllotedBO.cs" />
+    <Compile Include="OTBO\AnesthesiaBO.cs" />
+    <Compile Include="OTBO\OTRegnBO.cs" />
+    <Compile Include="OTBO\OTSchedulingBO.cs" />
+    <Compile Include="OTBO\OTStatusBO.cs" />
+    <Compile Include="OTBO\PatientConsentTypeBO.cs" />
+    <Compile Include="PatientBO\PatientCaseHistoryBO.cs" />
+    <Compile Include="PatientBO\RegistrationBO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserBO\AddRolesBO.cs" />
+    <Compile Include="UserBO\AddUsersBO.cs" />
+    <Compile Include="UserBO\ChangePswdBO.cs" />
+    <Compile Include="UserBO\UserBO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mediqura.CommonData\Mediqura.CommonData.csproj">
+      <Project>{c30ad028-9d08-46ba-8bd1-146e45157d37}</Project>
+      <Name>Mediqura.CommonData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mediqura.DAL\Mediqura.DAL.csproj">
+      <Project>{b81552c5-b198-4c53-b900-5f51148f530b}</Project>
+      <Name>Mediqura.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mediqura.Utility\Mediqura.Utility.csproj">
+      <Project>{5b95a665-958a-46dc-9009-2c91d60da37e}</Project>
+      <Name>Mediqura.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

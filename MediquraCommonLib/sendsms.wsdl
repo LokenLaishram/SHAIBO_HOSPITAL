@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="urn:sms" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:sms" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:sms">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="sendSMSToManyRequest">
+    <wsdl:part name="uid" type="xsd:string" />
+    <wsdl:part name="pwd" type="xsd:string" />
+    <wsdl:part name="phone" type="xsd:string" />
+    <wsdl:part name="msg" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="sendSMSToManyResponse">
+    <wsdl:part name="status" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="SendSMSPortType">
+    <wsdl:operation name="sendSMSToMany">
+      <documentation>Sends the same SMS to multiple phone numbers. Separate each phone number with a semicolon(';').</documentation>
+      <wsdl:input message="tns:sendSMSToManyRequest" />
+      <wsdl:output message="tns:sendSMSToManyResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SendSMSBinding" type="tns:SendSMSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="sendSMSToMany">
+      <soap:operation soapAction="urn:sms#SendSMSToMany" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:SendSMSToMany" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:SendSMSToMany" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SendSMS">
+    <wsdl:port name="SendSMSPort" binding="tns:SendSMSBinding">
+      <soap:address location="http://www.aswinanand.com/sendsms.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

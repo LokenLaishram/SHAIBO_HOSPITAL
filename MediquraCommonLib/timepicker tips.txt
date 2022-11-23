@@ -1,0 +1,27 @@
+ASP.NET Time Picker Control
+
+
+Description
+
+An ASP.NET time picker control that resembles the windows time that is displayed in 
+the taskbar of XP. Behaves much the same way.
+Works well in conjunction with a datepicker control for appointment settings. Also 
+contains Clock functionality. Assembly also contains a validator that takes a List 
+argument and allows the TimePicker to be aware of any appointment conflicts.
+Syntax Example
+<cc1:TimeSelector ID="TimeSelector2" runat="server" Date="05/10/10 2:30:00 PM" MinuteIncrement="15" AllowSecondEditing="false" />
+<cc1:TimeSelector ID="TimeSelector3" runat="server" EnableClock="true" /> 
+
+Validator Example, AllowSecondEditing set to false
+<MKB:timeselector ID="TimeSelector3" runat="server" MinuteIncrement="15" />
+<MKB:TimeSelectorAvailabilityValidator ID="TimeSelectorAvailabilityValidator1" runat="server" ControlToValidate="TimeSelector3" Display="Dynamic" ErrorMessage="That time is already taken!" />
+
+Validator Code Behind
+List<DateTime> list = new List<DateTime>();
+list.Add(DateTime.Now); 
+list.Add(DateTime.Now.AddSeconds(30)); 
+list.Add(DateTime.Now.AddMinutes(30)); 
+list.Add(DateTime.Now.AddHours(3));
+
+TimeSelectorAvailabilityValidator1.AppointmentList = list; 
+TimeSelectorAvailabilityValidator1.AppointmentLengthInMinutes = 90;

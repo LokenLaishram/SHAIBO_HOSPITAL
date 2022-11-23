@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C30AD028-9D08-46BA-8BD1-146E45157D37}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mediqura.CommonData</RootNamespace>
+    <AssemblyName>Mediqura.CommonData</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdmissionData\AdmissionData.cs" />
+    <Compile Include="AdmissionData\BedAssignData.cs" />
+    <Compile Include="AdmissionData\CurrentAdmissionListData.cs" />
+    <Compile Include="AdmissionData\DischargeIntimationData.cs" />
+    <Compile Include="AdmissionData\DueCollectionData.cs" />
+    <Compile Include="AdmissionData\IPCreditMasterData.cs" />
+    <Compile Include="AdmissionData\IPServiceRecordData.cs" />
+    <Compile Include="AdmissionData\PatAdmToWardData.cs" />
+    <Compile Include="Common\AES_EcryptionDecription.cs" />
+    <Compile Include="Common\ApplicationData.cs" />
+    <Compile Include="Common\BaseData.cs" />
+    <Compile Include="Common\CommonData.cs" />
+    <Compile Include="Common\Discount.cs" />
+    <Compile Include="Common\ICDdata.cs" />
+    <Compile Include="Common\LookupItem.cs" />
+    <Compile Include="Common\LookupName.cs" />
+    <Compile Include="Common\MedicineData.cs" />
+    <Compile Include="Common\PageControlsData.cs" />
+    <Compile Include="Common\PatientQRdata.cs" />
+    <Compile Include="LoginData\AddUsersData.cs" />
+    <Compile Include="LoginData\LogData.cs" />
+    <Compile Include="LoginData\RolesData.cs" />
+    <Compile Include="LoginData\SideMenu.cs" />
+    <Compile Include="LoginData\SiteMap.cs" />
+    <Compile Include="LoginData\UserData.cs" />
+    <Compile Include="MedAccount\AccountGroupMasterData.cs" />
+    <Compile Include="MedAccount\AccountLedgerMasterData.cs" />
+    <Compile Include="MedAccount\AccountMappingMasterData.cs" />
+    <Compile Include="MedAccount\AccountTransactionData.cs" />
+    <Compile Include="MedAccount\InsuranceReceivableData.cs" />
+    <Compile Include="MedAccount\LabAcntTranData.cs" />
+    <Compile Include="MedAccount\LabIncomeCollectionData.cs" />
+    <Compile Include="MedAccount\LedgerBookData.cs" />
+    <Compile Include="MedAccount\RecdTransactionData.cs" />
+    <Compile Include="MedAccount\TransactionDefaultData.cs" />
+    <Compile Include="MedAnalytics\SaleAnalyticsData.cs" />
+    <Compile Include="MedBankData\BankMasterData.cs" />
+    <Compile Include="MedBankData\BankTypeData.cs" />
+    <Compile Include="MedBillData\ActivityTrackerData.cs" />
+    <Compile Include="MedBillData\BillingData.cs" />
+    <Compile Include="MedBillData\DiscountRequestData.cs" />
+    <Compile Include="MedBillData\DoctorWiseCollectionMasterData.cs" />
+    <Compile Include="MedBillData\FinalBillData.cs" />
+    <Compile Include="MedBillData\IPDrugIndentData.cs" />
+    <Compile Include="MedBillData\LabDueCollectionData.cs" />
+    <Compile Include="MedBillData\TestWiseCollectionData.cs" />
+    <Compile Include="MedDashboardData\CompanyDashboardData.cs" />
+    <Compile Include="MedDashboardData\DashboardUrlMapData.cs" />
+    <Compile Include="MedEmergencyData\EmrgAdmissionData.cs" />
+    <Compile Include="MedHouseKeepingData\BedStatusData.cs" />
+    <Compile Include="MedHrData\DutyRosterData.cs" />
+    <Compile Include="MedHrData\DutyRosterTypeData.cs" />
+    <Compile Include="MedHrData\EmpFileData.cs" />
+    <Compile Include="MedHrData\EmployeeData.cs" />
+    <Compile Include="MedHrData\GradeDesgnData.cs" />
+    <Compile Include="MedHrData\HRControllManagerData.cs" />
+    <Compile Include="MedHrData\LeaveApplicationData.cs" />
+    <Compile Include="MedHrData\LeaveApprovalData.cs" />
+    <Compile Include="MedHrData\LeaveTypeData.cs" />
+    <Compile Include="MedHrData\RunnerDetailsData.cs" />
+    <Compile Include="MedLab\InvDashboardMasterData.cs" />
+    <Compile Include="MedLab\LabOutsourceManagerData.cs" />
+    <Compile Include="MedLab\LadReportCollectionData.cs" />
+    <Compile Include="MedLab\RadioLabReportVerificationData.cs" />
+    <Compile Include="MedLab\OutsourceCommissionData.cs" />
+    <Compile Include="MedMedication\MedicationChartData.cs" />
+    <Compile Include="MedMedication\NureseRecordSheetData.cs" />
+    <Compile Include="MedNurseData\DailyNursingAssessmentData .cs" />
+    <Compile Include="MedNurseData\IntakeOutputChartData.cs" />
+    <Compile Include="MedNurseData\NurseNotesData.cs" />
+    <Compile Include="MedNurseData\NurseRoasterData.cs" />
+    <Compile Include="MedNurseData\NurseStationData.cs" />
+    <Compile Include="MedNurseData\NursingStationData.cs" />
+    <Compile Include="MedNurseData\PatientSugarChartData.cs" />
+    <Compile Include="MedNurseData\SupervisorData.cs" />
+    <Compile Include="MedOPDData\DocAppoinmentData.cs" />
+    <Compile Include="MedNurseData\InvestigationChartData.cs" />
+    <Compile Include="MedPharData\EmgDrugIssueData.cs" />
+    <Compile Include="MedPharData\ItemSalesTrackerData.cs" />
+    <Compile Include="MedPharData\PharIPIssueData.cs" />
+    <Compile Include="MedPharData\PHRAccountGroupMasterData.cs" />
+    <Compile Include="MedPharData\PHRAccountLedgerMasterData.cs" />
+    <Compile Include="MedPharData\PHRAccountMappingMasterData.cs" />
+    <Compile Include="MedPharData\PHRAccountTransactionData.cs" />
+    <Compile Include="MedPharData\PhrDueCollectionData.cs" />
+    <Compile Include="MedPharData\PHRRecdTransactionData.cs" />
+    <Compile Include="MedPharData\Phr_InterStockTransferData.cs" />
+    <Compile Include="MedPharData\VendorPaymentData.cs" />
+    <Compile Include="MedStore\AlikeData.cs" />
+    <Compile Include="MedStore\CondemnReqApprovedData.cs" />
+    <Compile Include="MedStore\EmgReturnData.cs" />
+    <Compile Include="MedStore\GenDeptStockAvailibilityData.cs" />
+    <Compile Include="MedStore\GenDeptWiseUsedItemData.cs" />
+    <Compile Include="MedStore\GenIndentData.cs" />
+    <Compile Include="MedStore\GenInterStockTransferData.cs" />
+    <Compile Include="MedStore\GenItemGroupData.cs" />
+    <Compile Include="MedStore\GenItemMasterData.cs" />
+    <Compile Include="MedStore\GenItemSubGroupData.cs" />
+    <Compile Include="MedStore\GenMfgCompanyMasterData.cs" />
+    <Compile Include="MedStore\GENRackMasterData.cs" />
+    <Compile Include="MedStore\GENStrData.cs" />
+    <Compile Include="MedStore\GenSupplierTypeMasterData.cs" />
+    <Compile Include="MedStore\GenUnitMasterData.cs" />
+    <Compile Include="MedStore\IndentRecvHandOverData.cs" />
+    <Compile Include="MedStore\IndentRequestTypeData.cs" />
+    <Compile Include="MedStore\IndentStatusMasterData.cs" />
+    <Compile Include="MedStore\IndentToMainData.cs" />
+    <Compile Include="MedStore\IPReturnData.cs" />
+    <Compile Include="MedStore\ItemGroupMasterData.cs" />
+    <Compile Include="MedStore\ItemMasterData.cs" />
+    <Compile Include="MedStore\ItemSubGroupMasterData.cs" />
+    <Compile Include="MedStore\MfgCompanyMasterData.cs" />
+    <Compile Include="MedStore\OPReturnData.cs" />
+    <Compile Include="MedStore\PurchaseRequisitionData.cs" />
+    <Compile Include="MedStore\RackMasterData.cs" />
+    <Compile Include="MedStore\StockGRNData.cs" />
+    <Compile Include="MedStore\StockIssueData.cs" />
+    <Compile Include="MedStore\StockReturnData.cs" />
+    <Compile Include="MedStore\StockStatusData.cs" />
+    <Compile Include="MedStore\StoreProfitStatusData.cs" />
+    <Compile Include="MedStore\StoreUnitMasterData.cs" />
+    <Compile Include="MedStore\SupplierSaleTrackerData.cs" />
+    <Compile Include="MedStore\SupplierTypeMasterData.cs" />
+    <Compile Include="MedStore\TransactionSummaryData.cs" />
+    <Compile Include="MedStore\UtilizationReportData.cs" />
+    <Compile Include="MedStore\VendorStockReturnData.cs" />
+    <Compile Include="MedUtilityData\AddPageMasterData.cs" />
+    <Compile Include="MedUtilityData\AppoinmentScheduleData.cs" />
+    <Compile Include="MedUtilityData\RadiologyHeaderMasterData.cs" />
+    <Compile Include="MedUtilityData\RoomData.cs" />
+    <Compile Include="MedUtilityData\BedMasterData.cs" />
+    <Compile Include="MedUtilityData\BlockMasterData.cs" />
+    <Compile Include="MedUtilityData\CommissionMasterData.cs" />
+    <Compile Include="MedUtilityData\CommonGroupMasterData.cs" />
+    <Compile Include="MedUtilityData\CommonSubGroupMasterData.cs" />
+    <Compile Include="MedUtilityData\CountryData.cs" />
+    <Compile Include="MedUtilityData\DepartmentTypeMasterData.cs" />
+    <Compile Include="MedUtilityData\DesignationTypeMasterData.cs" />
+    <Compile Include="MedUtilityData\DischargeData.cs" />
+    <Compile Include="MedUtilityData\DistrictData.cs" />
+    <Compile Include="MedUtilityData\DocTaxData.cs" />
+    <Compile Include="MedUtilityData\DoctorMasterData.cs" />
+    <Compile Include="MedUtilityData\DocTypeData.cs" />
+    <Compile Include="MedUtilityData\EmpDocTypeData.cs" />
+    <Compile Include="MedUtilityData\EmpGradeData.cs" />
+    <Compile Include="MedUtilityData\EmpTypeData.cs" />
+    <Compile Include="MedUtilityData\ExpiryReportMasterData.cs" />
+    <Compile Include="MedUtilityData\FloorMasterData.cs" />
+    <Compile Include="MedUtilityData\GuestDocData.cs" />
+    <Compile Include="MedUtilityData\HospitalTypeMasterData.cs" />
+    <Compile Include="MedUtilityData\ICDcodecategoryData.cs" />
+    <Compile Include="MedUtilityData\ICDCodeRangeData.cs" />
+    <Compile Include="MedUtilityData\LabCommentMakerData.cs" />
+    <Compile Include="MedUtilityData\LabGroupTypeMasterData.cs" />
+    <Compile Include="MedUtilityData\LabRangeMasterData.cs" />
+    <Compile Include="MedUtilityData\LabSampleData.cs" />
+    <Compile Include="MedUtilityData\LabServiceMasterData.cs" />
+    <Compile Include="MedUtilityData\LabSubGroupMasterData.cs" />
+    <Compile Include="MedUtilityData\LabTemplateData.cs" />
+    <Compile Include="MedUtilityData\LabTestPackageMasterData.cs" />
+    <Compile Include="MedUtilityData\LabUnitData.cs" />
+    <Compile Include="MedUtilityData\MachineMasterData.cs" />
+    <Compile Include="MedUtilityData\MethodMasterData.cs" />
+    <Compile Include="MedUtilityData\MinorOTServicesPayOutData.cs" />
+    <Compile Include="MedUtilityData\OccupationData.cs" />
+    <Compile Include="MedUtilityData\OPDEmergencyPayOutData.cs" />
+    <Compile Include="MedUtilityData\OTRolesData.cs" />
+    <Compile Include="MedUtilityData\OTTheaterData.cs" />
+    <Compile Include="MedUtilityData\OutsidePatientData.cs" />
+    <Compile Include="MedUtilityData\PackageMasterData.cs" />
+    <Compile Include="MedUtilityData\PackageWiseServiceData.cs" />
+    <Compile Include="MedUtilityData\PatientTypeMasterData.cs" />
+    <Compile Include="MedUtilityData\PaymentTypeMasterData.cs" />
+    <Compile Include="MedUtilityData\PhrUnitMasterData.cs" />
+    <Compile Include="MedUtilityData\RadilogyLabServiceMSTData.cs" />
+    <Compile Include="MedUtilityData\RadiologyReportMasterData.cs" />
+    <Compile Include="MedUtilityData\ReagentMasterData.cs" />
+    <Compile Include="MedUtilityData\ReferalData.cs" />
+    <Compile Include="MedUtilityData\SalutationMasterData.cs" />
+    <Compile Include="MedUtilityData\SampleCollectionData .cs" />
+    <Compile Include="MedUtilityData\SampleContainerData.cs" />
+    <Compile Include="MedUtilityData\SeasonTypeData.cs" />
+    <Compile Include="MedUtilityData\ServiceData.cs" />
+    <Compile Include="MedUtilityData\ServiceMappingMasterData.cs" />
+    <Compile Include="MedUtilityData\StaffCategoryData.cs" />
+    <Compile Include="MedUtilityData\StateData.cs" />
+    <Compile Include="MedUtilityData\StockTypeMasterData.cs" />
+    <Compile Include="MedUtilityData\TestCenterMasterData.cs" />
+    <Compile Include="MedUtilityData\TPAMasterDatacs.cs" />
+    <Compile Include="MedUtilityData\UploadFileData.cs" />
+    <Compile Include="MedUtilityData\WardMasterData.cs" />
+    <Compile Include="MIS\MisReportData.cs" />
+    <Compile Include="MIS\NursingCareReportData.cs" />
+    <Compile Include="MIS\ServicesReportData.cs" />
+    <Compile Include="MIS\StaffFundReportData.cs" />
+    <Compile Include="MSBData\DepandentData.cs" />
+    <Compile Include="MSBData\DocumentUploadData.cs" />
+    <Compile Include="MSBData\EmployeeTypeData.cs" />
+    <Compile Include="MSBData\MsbBedAllotData.cs" />
+    <Compile Include="OTData\AnesthesiaData.cs" />
+    <Compile Include="OTData\OTRegnData.cs" />
+    <Compile Include="OTData\OTStatusData.cs" />
+    <Compile Include="OTData\PatientConsentTypeData.cs" />
+    <Compile Include="PatientData\ChangePswdData.cs" />
+    <Compile Include="PatientData\ICDData.cs" />
+    <Compile Include="PatientData\OTSchedulingData.cs" />
+    <Compile Include="PatientData\PatientData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MedLab\RadiologyReportData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

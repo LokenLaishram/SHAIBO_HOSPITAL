@@ -1,0 +1,577 @@
+﻿/*******START FOR COMMON CSS****/
+.upper-heading {
+    margin: 0px 0px 0px 0px;
+    font-family: 'Lucida', Georgia, serif;
+}
+
+.underline {
+    background-color: #32a1bb;
+    height: 1px;
+    margin: -2% 52% 10px 0px;
+}
+
+.cusrowcontainer {
+    padding: 20px 5px 0px 20px !important;
+}
+
+.cuspanelresult {
+    margin: 0px 20px 0px 10px !important;
+}
+
+.cus-message {
+    padding-top: 10px;
+}
+
+.modalBackground {
+    background-color: Gray;
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    z-index: 10000;
+}
+
+.cusbtn {
+    border-radius: 0px !important;
+    line-height: 10px !important;
+    width: 100px;
+    background-color: #5DD4B6;
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 13px !important;
+    height: 23px;
+}
+
+    .cusbtn:hover {
+        background-color: #38D7C0 !important;
+    }
+
+.cuslargetextbox {
+    border-radius: 0px !important;
+    height: 25px !important;
+    width: 1226px !important;
+    font-weight: bold;
+    padding: 0px 0px 0px -10px !important;
+    margin-left: 0px !important;
+    margin-right: 20px !important;
+}
+
+.custextbox {
+    border-radius: 0px !important;
+    height: 25px !important;
+    width: 292px !important;
+    font-weight: bold;
+}
+
+.ModalPopUp {
+    Position: relative;
+    Height: 400px;
+    Width: 400px;
+    Margin-left: auto;
+    Margin-right: auto;
+}
+
+.cusrow {
+    margin: 0px 0px !important;
+}
+
+.cuscolmn {
+    margin-top: -15px;
+    margin-left: 16px;
+}
+
+.input-group ul {
+    z-index: 3;
+}
+.cus-sm-span {
+      border-radius: 0px !important;
+       border: none;
+      width: 10px !important;
+      padding-right:60px !important;
+      line-height: 2px;
+      background-color: #D1EEEE;
+}
+.cus-sm-btn {
+    margin-left:80px;
+}
+.cus-sm-textbox {
+    border-radius: 0px !important;
+    height: 25px !important;
+    width: 93px !important;
+    font-weight: bold;
+}
+.cus-grid-border {
+     border-top: 1.1px solid #5dd4b6 !important;
+     border-bottom: 1.1px solid #5dd4b6 !important;
+
+}
+.cus-legend {
+    border-bottom: 1px solid #38d7c0 !important;
+    font-size:15px !important;
+    width:100%;
+    margin-top:-10px;
+}
+.cus-row-message {
+    margin-top:-10px !important;
+    Height:20px !important;
+    margin-bottom:1px !important;
+    padding-bottom: 3px !important;
+    line-height:23px !important;
+    padding-top: -3px !important;
+}
+.cus-lbl-message {
+    Height:15px; 
+    margin-right:950px;
+}
+.cus-row-result {
+    margin-top:-10px !important;
+    Height:18px !important;
+    margin-bottom:1px !important;
+    padding-bottom: 3px !important;
+    line-height:23px !important;
+    padding-top: -3px !important;
+}
+.cus-lbl-result {
+    width:500px;
+    background-color:red !important;
+}
+
+.cusmidiumtxtbox {
+    border-radius: 0px !important;
+    height: 25px !important;
+    width: 150px !important;
+    font-weight: bold;
+}
+
+.cusmidiumtxtbox2 {
+    border-radius: 0px !important;
+    height: 25px !important;
+    width: 204px !important;
+    font-weight: bold;
+}
+
+.cusmidiumtxtbox3 {
+    border-radius: 0px !important;
+    height: 25px !important;
+    width: 97px !important;
+    font-weight: bold;
+}
+
+.cussmalltxtbox {
+    border-radius: 0px !important;
+    height: 25px !important;
+    width: 50px !important;
+    font-weight: bold;
+}
+
+.cusspan {
+    border-radius: 0px !important;
+    text-align: left !important;
+    height: 20px !important;
+    width: 30% !important;
+    line-height: 2px;
+    background-color: #D1EEEE;
+    border: none;
+}
+
+.cusspan2 {
+    border-radius: 0px !important;
+    text-align: left !important;
+    height: 20px !important;
+    width: 125px !important;
+    line-height: 2px;
+    background-color: #D1EEEE;
+    border: none;
+}
+
+.cus-scroll {
+    height: 66vh !important;
+    overflow: auto !important;
+    border: 1px solid #C4D3EE !important;
+}
+
+.custable tr td {
+    line-height: 5px !important;
+    padding: 3px !important;
+}
+
+.ajax__calendar .ajax__calendar_container {
+    z-index: 3;
+    width: 292px;
+}
+
+.custable tr td label {
+    padding: 0px 0px 0px 10px !important;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.cus-container {
+    background-color: #D1EEEE;
+}
+
+.common_heading {
+    width: 100%;
+    line-height: 30px;
+    background-color: #B7E3E3 !important;
+    color: #31708F !important;
+    font-weight: lighter;
+    text-align: center;
+    text-transform: uppercase;
+    border: 1px solid #C4D3EE !important;
+}
+
+.comm-panel-heading {
+    line-height: 5px !important;
+    font-family: 'Lucida', Georgia, serif;
+}
+
+.cuspanelbtngrp {
+    margin-right: 10px !important;
+}
+
+.cusbtngrp {
+    margin-right: 20px !important;
+}
+
+.grid_table {
+    background-color: #fff !important;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 12px !important;
+}
+
+.panel {
+    border: 0px !important;
+    box-shadow: 0 0px 0px rgba(0,0,0,.05) !important;
+}
+
+.pbody {
+    background-color: #D1EEEE !important;
+}
+
+.Tab {
+    padding-top: 5px !important;
+    background-color: #D1EEEE !important;
+    visibility: visible !important;
+}
+
+.Tab2 {
+    margin-left: -20px !important;
+}
+
+.cusgvheader {
+    position: absolute;
+}
+
+.cuspanel {
+    border-radius: 0px !important;
+}
+
+.custab-panel {
+    background-color: #D1EEEE !important;
+}
+
+.ajax__tab_header {
+    background-color: #D1EEEE !important;
+}
+
+.ajax__tab {
+    margin-right: -11px !important;
+}
+
+.ajax__tab_body {
+    padding-top: 10px !important;
+    border: thin solid #5dd4b6 !important;
+    height: 535px !important;
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+    margin-top: -1px !important;
+}
+
+.ajax__tab_outer {
+    margin-left: 10px !important;
+    margin-right: 1px !important;
+    border-bottom: thin solid #5dd4b6 !important;
+}
+
+.ajax__tab_outer, .ajax__tab_inner {
+    background-color: #5dd4b6 !important;
+    color: #fff !important;
+    padding: -2px 10px -1px 10px !important;
+    line-height: 0px !important;
+    font-size: 15px !important;
+}
+
+    .ajax__tab_outer span, .ajax__tab_inner span {
+        background-color: #5dd4b6 !important;
+        color: #fff !important;
+    }
+
+.Tab .ajax__tab_tab, .Tab .ajax__tab_outer, .Tab .ajax__tab_inner {
+    background: #97DEBE !important;
+}
+
+.Tab .ajax__tab_active .ajax__tab_outer, .Tab .ajax__tab_active .ajax__tab_inner, .Tab .ajax__tab_active .ajax__tab_tab {
+    background: #5dd4b6 !important;
+}
+
+.result-table {
+    margin: 0px !important;
+    border: 0px !important;
+}
+
+    .result-table th {
+        margin: 0px 0px 0px 0px !important;
+        color: #555 !important;
+        background-color: #B7E3E3 !important;
+        padding-left: 5px;
+        font-weight: lighter;
+        text-transform: capitalize;
+        border: 1px solid #C4D3EE !important;
+    }
+
+    .result-table tr {
+        height: 2px !important;
+    }
+
+    .result-table tbody td {
+        margin: 0px 0px 0px 0px !important;
+        color: #31708F !important;
+        padding-left: 5px;
+        border: 1px solid #C4D3EE !important;
+    }
+
+.cus-main-menu {
+    width: auto !important;
+}
+
+    .cus-main-menu a {
+        padding: 1% 2% !important;
+        font-size: 14px !important;
+        color: #fff !important;
+        border-top: 1px solid #E7E7E7 !important;
+        border-bottom: 0px !important;
+        width: auto !important;
+    }
+
+        .cus-main-menu a:hover {
+            background-color: #38D7C0 !important;
+        }
+
+    .cus-main-menu ul li ul li {
+        background-color: #32a1bb !important;
+        min-width: 160px !important;
+    }
+
+        .cus-main-menu ul li ul li a {
+            background-color: #5dd4b6 !important;
+            width: auto !important;
+        }
+
+.cus-main-nav a:hover {
+    color: #d9edf7 !important;
+}
+
+.cus-next {
+    padding: 5px;
+}
+
+.popheader {
+    background-color: #D1EEEE;
+    margin-left: 110px;
+}
+/*---------POP UP CSS ------- */
+.modalheader {
+    background-color: #38D7C0 !important;
+    font-size: 14px !important;
+}
+
+.popup {
+    width: 500px;
+    min-height: 250px;
+    padding: 18px 0px 0px 18px;
+}
+
+.poprow {
+    padding: 5px 0px 5px 0px;
+}
+.popup-header {
+    width:470px !important; 
+    height:26px;
+    padding:-10px 0px 0px 0px;
+    margin:-18px 0px 8px -3px;
+    background-color:#38D7C0;
+}
+.popup-heading {
+    color:#fff;
+    padding:0px 0px 0px 0px;
+    margin:6px 0px 0px 0px !important;
+}
+.popup-div-msg {
+    width:463px;
+    min-height:10px;   
+   /* margin:0px 0px 16px 0px;*/
+}
+.popup-lbl-msg {
+    width:462px;
+    min-height:26px;   
+    margin:0px 0px 16px 0px;
+    background-color:#e6d5b3;
+}
+.popup-normal-msg-bg {
+     background-color:#d1eeee;
+}
+.popup-error-msg-bg {
+     background-color:#e6d5b3;
+}
+.cuspopuptext {
+    border-radius: -16px !important;
+    height: 25px !important;
+    width: 300px !important;
+    font-weight: lighter;
+}
+
+.cuspopuptextarea {
+    width: 300px !important;
+}
+
+.popupbtn {
+    padding: 15px 0px 5px 65px;
+}
+.popup-btn-gap {
+     padding: 0px 0px 0px 0px;
+}
+
+.Mediquraplaceholder_tabcontainerpatient_tabopdbillingdetails_pup_lblUserMessage {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    color: red !important;
+}
+/*---------END OF POP UP CSS ------- */
+.button {
+    padding: 5px 10px !important;
+    font-size: 14px !important;
+    display: inline-block !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    vertical-align: middle !important;
+    background-image: none !important;
+    border: 1px solid transparent !important;
+    border-radius: 0px !important;
+    line-height: 10px !important;
+    width: 100px;
+    background-color: #43B4CE;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+    .button:hover {
+        background-color: #2980B9 !important;
+    }
+
+.cus-Edit-header {
+    padding-left: 34% !important;
+}
+
+.cus-Delete-header {
+    padding-left: 27% !important;
+}
+
+.cus-edit-delete-color {
+    color: #31708F;
+    font-size: 18px !important;
+    padding-left: 40%;
+}
+
+.panel-heading {
+    background-color: #32a1bb !important;
+    color: #fff !important;
+}
+
+.ajax__tab_tab {
+    font-weight: normal!important;
+    padding: 10px 8px 0px 0px!important;
+    text-align: left;
+    margin-right: -15px!important;
+}
+
+.Tab {
+    text-align: left;
+}
+
+
+/****** END OF COMMON CSS ***********/
+.fancy-green .ajax__tab_header {
+    background: url(green_bg_Tab.gif) repeat-x;
+    cursor: pointer;
+}
+
+.fancy-green .ajax__tab_hover .ajax__tab_outer, .fancy-green .ajax__tab_active .ajax__tab_outer {
+    background: url(green_left_Tab.gif) no-repeat left top;
+}
+
+.fancy-green .ajax__tab_hover .ajax__tab_inner, .fancy-green .ajax__tab_active .ajax__tab_inner {
+    background: url(green_right_Tab.gif) no-repeat right top;
+}
+
+.fancy .ajax__tab_header {
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+    font-family: sans-serif;
+}
+
+    .fancy .ajax__tab_active .ajax__tab_outer, .fancy .ajax__tab_header .ajax__tab_outer, .fancy .ajax__tab_hover .ajax__tab_outer {
+        height: 46px;
+    }
+
+    .fancy .ajax__tab_active .ajax__tab_inner, .fancy .ajax__tab_header .ajax__tab_inner, .fancy .ajax__tab_hover .ajax__tab_inner {
+        height: 46px;
+        margin-left: 0px; /* offset the width of the left image */
+    }
+
+    .fancy .ajax__tab_active .ajax__tab_tab, .fancy .ajax__tab_hover .ajax__tab_tab, .fancy .ajax__tab_header .ajax__tab_tab {
+        margin: 16px 0px 0px 0px;
+    }
+
+.fancy .ajax__tab_hover .ajax__tab_tab, .fancy .ajax__tab_active .ajax__tab_tab {
+    color: #fff;
+}
+
+.fancy .ajax__tab_body {
+    font-family: Arial;
+    font-size: 10pt;
+    border-top: 0;
+    border: 1px solid #999999;
+    padding: 0px;
+    background-color: #ffffff;
+}
+
+.FailAlert {
+    margin: auto;
+    line-height: 17px;
+    text-align: left;
+    background-color: #F2C8B5;
+    color: Red;
+}
+
+.Blank {
+    margin: auto;
+    line-height: 13px;
+    text-align: left;
+    background-color: #D1EEEE;
+}
+
+.SucessAlert {
+    margin: auto;
+    line-height: 13px;
+    text-align: center;
+    background-color: #c8e3a3;
+    color: Green;
+}
+
+.cus_ddl select {
+    height: 20px!important;
+}
+
+.cuslabel {
+    width: 800px;
+}

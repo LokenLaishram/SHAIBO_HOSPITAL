@@ -1,0 +1,258 @@
+@font-face
+{
+    font-family: cusfont;
+    src: url(../fonts/rbno.otf);
+}
+body
+{
+    background: url(../Images/inventory-image.png) fixed;
+    background-size: 440px;
+    background-repeat: no-repeat;
+    background-position: 287px;
+    padding: 0;
+    margin: 0;
+}
+
+.wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+
+
+form
+{
+    width: 250px;
+    margin: 0 auto;
+}
+
+form.login input[type="text"], form.login input[type="password"]
+{
+    width: 91%;
+    margin: 19px 0px;
+    padding: 7px 10px;
+    background: #FFFFFF;
+    border: 1px solid #5fbdff;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    outline: 0;
+}
+
+form.login input[type="submit"]
+{
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    padding: 6px;
+    border: 1px solid #00b4e2;
+    letter-spacing: 1px;
+}
+
+form.login input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+
+form.login .remember-forgot
+{
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+form.login .forgot-pass-content
+{
+    min-height: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+form.login label, form.login a
+{
+    font-size: 17px;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-family: calibri;
+}
+
+form.login a
+{
+    transition: color 0.5s ease;
+}
+
+form.login a:hover
+{
+    color: #DDD;
+}
+
+.pr-wrap
+{
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+.show-pass-reset
+{
+    display: block !important;
+}
+
+.pass-reset
+{
+    margin: 0 auto;
+    width: 250px;
+    position: relative;
+    margin-top: 22%;
+    z-index: 999;
+    background: #FFFFFF;
+    padding: 20px 15px;
+}
+
+.pass-reset label
+{
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.pass-reset input[type="email"]
+{
+    width: 100%;
+    margin: 5px 0 0 0;
+    padding: 5px 10px;
+    background: 0;
+    border: 0;
+    border-bottom: 1px solid #000000;
+    outline: 0;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #000000;
+    outline: 0;
+}
+
+.pass-reset input[type="submit"]
+{
+    width: 100%;
+    border: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 10px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.pass-reset input[type="submit"]:hover
+{
+    transition: background-color 0.5s ease;
+}
+
+.navbar-inverse
+{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-brand
+{
+    font-family: Bodoni MT Black;
+    font-style: italic;
+    font-size: 26px;
+    color: #415360 !important;
+}
+
+.navbar
+{
+    min-height: 70px;
+    padding-top: 12px;
+}
+
+.navbar-header
+{
+    width: 100%;
+}
+
+::-webkit-input-placeholder
+{
+    color: #4c4c4c;
+}
+
+:-moz-placeholder
+{
+    /* Firefox 18- */
+    color: #4c4c4c;
+}
+
+::-moz-placeholder
+{
+    /* Firefox 19+ */
+    color: #4c4c4c;
+}
+
+:-ms-input-placeholder
+{
+    color: #4c4c4c;
+}
+
+footer
+{
+    bottom: 0;
+    position: absolute;
+    color: #ffffff;
+    text-align: right;
+    right: 12px;
+    font-family: calibri;
+    font-size: 17px;
+    padding: 0px 12px;
+}
+footer a
+{
+    color: #0f8eff;
+}
+footer a:hover
+{
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.loginbtn {
+    color: #fff;
+    background: #13ce9e;
+}
+.loginbtn:hover {
+    background-color: #20ecb7 !important;
+}
+.loginbtn.active, .loginbtn.focus, .loginbtn:active, .loginbtn:focus, .loginbtn:hover
+{
+    color: #fff;
+    background-color: #13ce9e;
+}
+.logincontain
+{
+    padding: 7px 36px;
+    height: 360px;
+    right: 160px;
+    width: 240px;
+    position: absolute;
+    background: #43b4ce;
+}
