@@ -118,7 +118,7 @@
                 document.getElementById("<%=txt_paidamount.ClientID%>").value = ((+txt_TotalBill) - (+txt_DiscountValue)).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];
             }
             else {
-                document.getElementById("<%=txtDiscount.ClientID%>").value = (+txt_TotalBill);
+                document.getElementById("<%=txtDiscount.ClientID%>").value = 0;
                 document.getElementById("<%=txt_payableamnt.ClientID%>").value = (+txt_TotalBill);
                 document.getElementById("<%=txt_paidamount.ClientID%>").value = (+txt_TotalBill);
 

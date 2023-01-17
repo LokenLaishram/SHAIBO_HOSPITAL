@@ -78,7 +78,7 @@
                                             CompletionInterval="100" CompletionSetCount="1" TargetControlID="txt_invno"
                                             UseContextKey="True" DelimiterCharacters="" Enabled="True" ServicePath="" CompletionListCssClass="completionList" CompletionListItemCssClass="listItem" CompletionListHighlightedItemCssClass="itemHighlighted">
                                         </asp:AutoCompleteExtender>
-                                        <asp:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" TargetControlID="txt_invno" ValidChars="0123456789INVinvOPDopdEMGemgEX" runat="server"></asp:FilteredTextBoxExtender>
+                                        <asp:FilteredTextBoxExtender ID="FilteredTextBoxExtender2" TargetControlID="txt_invno" ValidChars="0123456789INVSHsdhAainvOPDopdEMGemgEX" runat="server"></asp:FilteredTextBoxExtender>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

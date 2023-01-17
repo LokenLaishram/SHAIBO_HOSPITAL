@@ -245,7 +245,7 @@ namespace Mediqura.Web.MedBills
             {
                 ddlRunnerID.SelectedIndex = 1;
             }
-           
+
             Commonfunction.PopulateDdl(ddldepartment, mstlookup.GetLookupsList(LookupName.OPDepartment));
             Commonfunction.PopulateDdl(ddlcollectedby, mstlookup.GetLookupsList(LookupName.CollectedBy));
             txtdatefrom.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
@@ -538,6 +538,7 @@ namespace Mediqura.Web.MedBills
                     txt_chequenumber.ReadOnly = false;
                     txtinvoicenumber.ReadOnly = true;
                 }
+                discountCalcuation();
             }
             else
             {
@@ -545,7 +546,50 @@ namespace Mediqura.Web.MedBills
                 txt_bank.ReadOnly = true;
                 txt_chequenumber.ReadOnly = true;
                 txtinvoicenumber.ReadOnly = true;
+                discountCalcuation();
             }
+        }
+        protected void discountCalcuation()
+        {
+            decimal TotalBill = Convert.ToDecimal(txt_totalbill.Text == "" ? "0" : txt_totalbill.Text);
+            decimal Discount = Convert.ToDecimal(txtDiscount.Text == "" ? "0" : txtDiscount.Text);
+            decimal Payable = TotalBill - Discount;
+
+            if (Discount > TotalBill)
+            {
+                txtDiscount.Text = "0";
+                txt_payableamnt.Text = TotalBill.ToString("N");
+                txt_paidamount.Text = TotalBill.ToString("N");
+                txt_due.Text = "0";
+                Messagealert_.ShowMessage(lblmessage, "Discount amount cannot be grater than total bill.", 0);
+                div1.Attributes["class"] = "FailAlert";
+                div1.Visible = true;
+                return;
+            }
+            else
+            {
+                div1.Visible = false;
+                txt_payableamnt.Text = Payable.ToString("N");
+            }
+            
+            decimal payableamnt = Convert.ToDecimal(txt_payableamnt.Text == "" ? "0" : txt_payableamnt.Text);
+            decimal paidamount = Convert.ToDecimal(txt_paidamount.Text == "" ? "0" : txt_paidamount.Text);
+            if (paidamount > payableamnt)
+            {
+                txt_paidamount.Text = "0";
+                txt_due.Text = payableamnt.ToString("N");
+                Messagealert_.ShowMessage(lblmessage, "paid amount cannot be grater than payable amount.", 0);
+                div1.Attributes["class"] = "FailAlert";
+                div1.Visible = true;
+                return;
+            }
+            else
+            {
+                div1.Visible = false;
+                decimal due = payableamnt - paidamount;
+            }
+
+
         }
         protected void GetBankName(int paymode)
         {
@@ -844,7 +888,7 @@ namespace Mediqura.Web.MedBills
                 lblmessage.Visible = false;
                 div1.Visible = false;
             }
-           
+
 
             if (ddl_TestCenter.SelectedIndex == 0)
             {
@@ -2119,7 +2163,7 @@ namespace Mediqura.Web.MedBills
                              "<td align=\"right\"></td> </tr>";
                     LitBarcodelist.Text = barcode;
                     this.ModelListBarcode.Show();
-                }              
+                }
             }
             catch (Exception ex) //Exception in agent layer itself
             {
@@ -2183,7 +2227,7 @@ namespace Mediqura.Web.MedBills
             foreach (LabBillingData row in DepositDetails)
             {
                 OPDLabbillingDataTOeXCEL Ecxeclpat = new OPDLabbillingDataTOeXCEL();
-                Ecxeclpat.RefNo= DepositDetails[i].RefNo;
+                Ecxeclpat.RefNo = DepositDetails[i].RefNo;
                 Ecxeclpat.UHID = DepositDetails[i].UHID;
                 Ecxeclpat.PatientName = DepositDetails[i].PatientName;
                 Ecxeclpat.Address = DepositDetails[i].Address;
@@ -2215,7 +2259,7 @@ namespace Mediqura.Web.MedBills
             objlabbill.Paymode = Convert.ToInt32(ddlpaymentmodes.SelectedValue == "" ? "0" : ddlpaymentmodes.SelectedValue);
             objlabbill.CollectedByID = Convert.ToInt64(ddlcollectedby.SelectedValue == "" ? "0" : ddlcollectedby.SelectedValue);
             objlabbill.RunnerID = Convert.ToInt32(ddlRunnerBy.SelectedValue == "" ? "0" : ddlRunnerBy.SelectedValue);
- 
+
             string datefrom = from.ToString("yyyy-MM-dd");
             string timefrom = txttimepickerfrom.Text.Trim();
             from = Convert.ToDateTime(datefrom + " " + timefrom);
