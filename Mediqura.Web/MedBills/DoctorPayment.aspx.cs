@@ -44,6 +44,8 @@ namespace Mediqura.Web.MedBills
             btn_pay.Attributes["disabled"] = "disabled";
             btn_printrecv.Attributes["disabled"] = "disabled";
             //txtdatefrom.Attributes["disabled"] = "disabled";
+            txtdatefrom.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
+            txtto.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
         }
         protected void btnsearch_Click(object sender, EventArgs e)
         {
@@ -97,8 +99,8 @@ namespace Mediqura.Web.MedBills
             txt_totalamount.Text = "";
             txt_discountamount.Text = "";
             txt_paidamount.Text = "";
-            txtdatefrom.Text = "";
-            txtto.Text = "";
+            txtdatefrom.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
+            txtto.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
             txt_paymentnumber.Text = "";
             btn_pay.Attributes["disabled"] = "disabled";
 
@@ -119,8 +121,6 @@ namespace Mediqura.Web.MedBills
 
             if (ddl_servicecategory.SelectedIndex > 0)
             {
-                txtdatefrom.Text = "";
-                txtto.Text = "";
                 DoctorPayoutData objData = new DoctorPayoutData();
                 OPDbillingBO objBO = new OPDbillingBO();
                 IFormatProvider option = new System.Globalization.CultureInfo("en-GB", true);
@@ -132,7 +132,7 @@ namespace Mediqura.Web.MedBills
                 List<DoctorPayoutData> result = objBO.GetdueDates(objData);
                 if (result.Count > 0)
                 {
-                    txtdatefrom.Text = result[0].DateFrom.ToString("dd/MM/yyyy") == "01/01/0001" ? "" : result[0].DateFrom.ToString("dd/MM/yyyy");
+                   // txtdatefrom.Text = result[0].DateFrom.ToString("dd/MM/yyyy") == "01/01/0001" ? "" : result[0].DateFrom.ToString("dd/MM/yyyy");
                     //txtto.Text = result[0].DateTo.ToString("dd/MM/yyyy") == "01/01/0001" ? "" : result[0].DateTo.ToString("dd/MM/yyyy");
                     txt_referal.Attributes["disabled"] = "disabled";
                     ddl_doctortype.Attributes["disabled"] = "disabled";
@@ -264,6 +264,7 @@ namespace Mediqura.Web.MedBills
             objData.DateFrom = from;
             objData.DateTo = To;
             objData.ServiceCategory = Convert.ToInt32(ddl_servicecategory.SelectedValue == "" ? "0" : ddl_servicecategory.SelectedValue);
+            objData.PayableCategory = Convert.ToInt32(ddl_doctortype.SelectedValue == "" ? "0" : ddl_doctortype.SelectedValue);
             return objBO.GetDoctorsPayableservices(objData);
         }
         protected void Gv_Collectionlist_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -572,10 +573,10 @@ namespace Mediqura.Web.MedBills
         protected void txt_referal_TextChanged(object sender, EventArgs e)
         {
             ddl_servicecategory.SelectedIndex = 0;
-            txtdatefrom.Text = "";
-            txtto.Text = "";
             txt_paymentnumber.Text = "";
             ddl_servicecategory.Focus();
+            txtdatefrom.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
+            txtto.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
         }
         protected void btn_historyreset_Click(object sender, EventArgs e)
         {
@@ -740,6 +741,7 @@ namespace Mediqura.Web.MedBills
                 Ecxeclpat.ReferralPayable = PatientDetails[i].ReferralPayable.ToString("N");
                 Ecxeclpat.RunnerPC = PatientDetails[i].RunnerPC.ToString("N");
                 Ecxeclpat.RunnerPayable = PatientDetails[i].RunnerPayable.ToString("N");
+                Ecxeclpat.RunnerPayable = PatientDetails[i].AddedDate.ToString();
                 ListexcelData.Add(Ecxeclpat);
                 i++;
             }

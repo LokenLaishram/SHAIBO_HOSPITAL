@@ -727,6 +727,7 @@
     <Content Include="Images\background0000.jpg" />
     <Content Include="Images\background_1.jpg" />
     <Content Include="Images\bg.jpg" />
+    <Content Include="Images\CompanyLogo.jpg" />
     <Content Include="Images\dashboard.jpg" />
     <Content Include="Images\dashboard.svg" />
     <Content Include="Images\dashboard111.jpg" />

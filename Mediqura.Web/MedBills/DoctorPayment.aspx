@@ -22,7 +22,7 @@
                                             style="color: red">*</span></span>
                                         <asp:DropDownList ID="ddl_doctortype" OnSelectedIndexChanged="ddl_doctortype_SelectedIndexChanged" AutoPostBack="True" runat="server" class="form-control input-sm col-sm custextbox">
                                             <asp:ListItem Value="0">--Select--</asp:ListItem>
-                                            <asp:ListItem Value="1">Internal Consultant</asp:ListItem>
+                                            <asp:ListItem Value="4">Internal Consultant</asp:ListItem> <%----to avoid self select need to fix later ----%>
                                             <asp:ListItem Value="3">Ext. Referal Doctor</asp:ListItem>
                                             <asp:ListItem Value="2">Referal Hospital </asp:ListItem>
                                         </asp:DropDownList>
@@ -47,9 +47,9 @@
                                             style="color: red">*</span></span>
                                         <asp:DropDownList ID="ddl_servicecategory" AutoPostBack="True" runat="server" class="form-control input-sm col-sm custextbox" OnSelectedIndexChanged="ddl_servicecategory_SelectedIndexChanged">
                                             <asp:ListItem Value="0">--Select--</asp:ListItem>
-                                            <asp:ListItem Value="1">OPD Services</asp:ListItem>
+                                           <%-- <asp:ListItem Value="1">OPD Services</asp:ListItem>--%>
                                             <asp:ListItem Value="4">Investigation Referal</asp:ListItem>
-                                            <asp:ListItem Value="5">Investigation Reporting</asp:ListItem>
+                                      <%--      <asp:ListItem Value="5">Investigation Reporting</asp:ListItem>--%>
                                         </asp:DropDownList>
                                     </div>
                                 </div>
