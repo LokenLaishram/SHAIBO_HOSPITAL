@@ -7,7 +7,8 @@
     <script type="text/javascript">
         function calculate1() {
             var DueBal = document.getElementById("<%=txt_DueBal.ClientID%>").value;
-            var Paid = document.getElementById("<%=txt_Paid.ClientID%>").value;
+            var Paid = document.getElementById("<%=txt_Paid.ClientID%>").value
+            var discountcheck = document.getElementById("<%=chkduediscount.ClientID%>");
 
             if (+Paid > +DueBal) {
                 document.getElementById("<%=txtdue.ClientID%>").value = 0;
@@ -15,7 +16,10 @@
                 alert("Paid amount cannot be greater than due balance.");
                 return false;
             }
-            else {
+            else if (discountcheck.checked) {
+                document.getElementById("<%=txtdue.ClientID%>").value =0;
+                document.getElementById("<%=txtDiscountAmount.ClientID%>").value = (+DueBal - +Paid).toFixed(2);;
+            } else {
                 document.getElementById("<%=txtdue.ClientID%>").value = (+DueBal - +Paid).toFixed(2);
                 document.getElementById("<%=txtDiscountAmount.ClientID%>").value = 0;
             }

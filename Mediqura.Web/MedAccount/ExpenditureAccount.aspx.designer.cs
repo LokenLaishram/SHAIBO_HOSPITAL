@@ -213,6 +213,15 @@ namespace Mediqura.Web.MedAccount
         protected global::AjaxControlToolkit.TabPanel tabPanel1;
 
         /// <summary>
+        /// panel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panel2;
+
+        /// <summary>
         /// div3 control.
         /// </summary>
         /// <remarks>
@@ -391,15 +400,6 @@ namespace Mediqura.Web.MedAccount
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblgridincome;
-
-        /// <summary>
-        /// updateProgress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdateProgress updateProgress2;
 
         /// <summary>
         /// Gv_incomereport control.

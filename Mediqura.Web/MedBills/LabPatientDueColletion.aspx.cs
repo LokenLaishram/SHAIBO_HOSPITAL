@@ -52,6 +52,12 @@ namespace Mediqura.Web.MedBills
             //----TAB3------//
             Commonfunction.PopulateDdl(ddl_PatientType, mstlookup.GetLookupsList(LookupName.CustomerType));
             Commonfunction.PopulateDdl(ddl_DueResponsibleBy, mstlookup.GetLookupsList(LookupName.Employee));
+            txtfrom.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
+            txtto.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
+
+            txt_DateFrom.Text= System.DateTime.Today.ToString("dd/MM/yyyy");
+            txt_DateTo.Text = System.DateTime.Today.ToString("dd/MM/yyyy");
+
         }
         protected void btnsearchs_Click(object sender, EventArgs e)
         {
@@ -484,7 +490,7 @@ namespace Mediqura.Web.MedBills
                 {
                     lblmessage2.Visible = false;
                 }
-                if (ddlpaymentmode.SelectedIndex == 0)
+                if (ddlpaymentmode.SelectedIndex == 0 && txt_Paid.Text!="0")
                 {
                     Messagealert_.ShowMessage(lblmessage2, "Paymode", 0);
                     divmsg2.Visible = true;

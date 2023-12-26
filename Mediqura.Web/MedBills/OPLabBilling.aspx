@@ -110,8 +110,8 @@
 
             var txt_TotalBill = document.getElementById("<%=txt_totalbill.ClientID%>").value;
             var txt_DiscountValue = document.getElementById("<%=txtDiscount.ClientID%>").value;
-            var txt_Payable = document.getElementById("<%=txt_payableamnt.ClientID%>").value;
-            var txt_Paid = document.getElementById("<%=txt_paidamount.ClientID%>").value;
+            var txt_Payable = document.getElementById("<%=txt_payableamnt.ClientID%>").value; 
+                      var txt_Paid = document.getElementById("<%=txt_paidamount.ClientID%>").value;
             var txt_Due = document.getElementById("<%=txt_due.ClientID%>").value;
             if ((+txt_TotalBill) >= (+txt_DiscountValue)) {
                 document.getElementById("<%=txt_payableamnt.ClientID%>").value = ((+txt_TotalBill) - (+txt_DiscountValue)).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];

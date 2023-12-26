@@ -4478,6 +4478,7 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Culturetemplate.cs</LastGenOutput>
     </Content>
+    <Content Include="MedAccount\Reports\ManualTransaction.rpt" />
     <EmbeddedResource Include="MedNurse\Reports\NurseRecordSheetRpt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NurseRecordSheetRpt.cs</LastGenOutput>

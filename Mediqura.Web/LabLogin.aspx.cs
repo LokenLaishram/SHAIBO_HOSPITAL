@@ -24,7 +24,7 @@ namespace Mediqura.Web
         protected void Page_Load(object sender, EventArgs e)
         {
             DateTime Today = DateTime.Today;
-            ExpiryDate = Convert.ToDateTime("2023/11/26 12:00:00");
+            ExpiryDate = Convert.ToDateTime("2024/08/26 12:00:00");
             if ((ExpiryDate - Today).TotalDays <= 30)
             {
                 lblmessage.Visible = true;

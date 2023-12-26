@@ -189,6 +189,31 @@ namespace Mediqura.Web.MedAccount.Reports
                         crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, false, "ExportedReport");
                         break;
 
+                    case "ManualTransaction":
+                        DataTable dttran = new DataTable();
+                        crystalReport.Load(Server.MapPath("ManualTransaction.rpt"));
+                        using (SqlConnection con = new SqlConnection(constr))
+                        {
+                            using (SqlCommand cmd = new SqlCommand())
+                            {
+                                using (SqlDataAdapter sda = new SqlDataAdapter())
+                                {
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.CommandText = "usp_MDQ_GetTransaction_RPT";
+                                    cmd.Parameters.Add("@LoginName", SqlDbType.VarChar).Value = LogData.UserName;
+                                    cmd.Parameters.Add("@voucherNumber", SqlDbType.VarChar).Value = Request["VoucherNo"].ToString() == "" ? "0" : Request["VoucherNo"].ToString();
+                                    cmd.Connection = con;
+                                    sda.SelectCommand = cmd;
+                                    sda.Fill(dttran);
+                                }
+                            }
+                        }
+                        crystalReport.SetDataSource(dttran);
+                        MediReportViewer.ReportSource = crystalReport;
+                        crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, false, "ExportedReport");
+                        break;
+
+
                 }
             }
         }

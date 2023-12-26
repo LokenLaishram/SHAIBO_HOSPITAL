@@ -133,7 +133,10 @@ namespace Mediqura.Web.MedAccount
             txtdatefrom.Text = System.DateTime.Now.ToString("dd/MM/yyyy");
             txtto.Text = System.DateTime.Now.ToString("dd/MM/yyyy");
             ddl_transaction.SelectedIndex = 0;
+            divmsg3.Visible = false;
+            div1.Visible = false;
 
+            lblgridexpenses.Visible = false;
         }
 
         //-----------END OF TAB 1 -----------------//
@@ -277,8 +280,10 @@ namespace Mediqura.Web.MedAccount
                     int j = Convert.ToInt16(e.CommandArgument.ToString());
                     GridViewRow gv = GV_expensesreport.Rows[j];
                     Label voucher = (Label)gv.Cells[0].FindControl("lblincomeVoucher");
+                    TextBox remark = (TextBox)gv.Cells[0].FindControl("txtremarks");
                     objData.VoucherNo = voucher.Text.Trim() == "" ? "" : voucher.Text.Trim();
                     objData.EmployeeID = LogData.EmployeeID;
+                    objData.Remarks = remark.Text.Trim() == "" ? "" : remark.Text.Trim();
                     int result = objBO.DeleteTransactionByVoucherNo(objData);
                 }
             }
@@ -342,5 +347,145 @@ namespace Mediqura.Web.MedAccount
             }
         }
 
+        protected void GV_expensesreport_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                if (e.CommandName == "Deletes")
+                {
+                    if (LogData.DeleteEnable == 0)
+                    {
+                        Messagealert_.ShowMessage(lblmessage2, "DeleteEnable", 0);
+                        div3.Visible = true;
+                        div3.Attributes["class"] = "FailAlert";
+                        return;
+                    }
+                    else
+                    {
+                        lblmessage2.Visible = false;
+                    }
+
+                    LabAcntTranData objData = new LabAcntTranData();
+                    LabAcntTranDA objBO = new LabAcntTranDA();
+                    int j = Convert.ToInt16(e.CommandArgument.ToString());
+                    GridViewRow gv = GV_expensesreport.Rows[j];
+                    Label voucher = (Label)gv.Cells[0].FindControl("lblexpensesVoucher");
+                    TextBox remark = (TextBox)gv.Cells[0].FindControl("txtremarks");
+
+                    if (remark.Text == "")
+                    {
+                        Messagealert_.ShowMessage(lblresult, "Remarks", 0);
+                        divmsg3.Attributes["class"] = "FailAlert";
+                        divmsg3.Visible = true;
+                        remark.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        objData.Remarks = remark.Text.Trim() == "" ? "" : remark.Text.Trim();
+                    }
+
+                    objData.VoucherNo = voucher.Text.Trim() == "" ? "" : voucher.Text.Trim();
+                    objData.EmployeeID = LogData.EmployeeID;
+                 
+
+                    int result = objBO.DeleteTransactionByVoucherNo(objData);
+
+                    if (result == 1)
+                    {
+                        transactiontype();
+                        divmsg3.Visible = false;
+                    }
+                }
+            }
+            catch (Exception ex) //Exception in agent layer itself
+            {
+                PolicyBasedExceptionHandler.HandleException(PolicyBasedExceptionHandler.PolicyName.UIExceptionPolicy, ex, "1000001");
+                LogManager.LogMedError(ex, EnumErrorLogSourceTier.Web);
+                Messagealert_.ShowMessage(lblresult, "system", 0);
+                div3.Attributes["class"] = "FailAlert";
+                div3.Visible = true;
+                return;
+            }
+        }
+
+        protected void Gv_incomereport_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
+
+        protected void Gv_incomereport_RowCommand1(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                if (e.CommandName == "Deletes")
+                {
+                    if (LogData.DeleteEnable == 0)
+                    {
+                        Messagealert_.ShowMessage(lblmessage2, "DeleteEnable", 0);
+                        div3.Visible = true;
+                        div3.Attributes["class"] = "FailAlert";
+                        return;
+                    }
+                    else
+                    {
+                        lblmessage2.Visible = false;
+                    }
+                    LabAcntTranData objData = new LabAcntTranData();
+                    LabAcntTranDA objBO = new LabAcntTranDA();
+                    int j = Convert.ToInt16(e.CommandArgument.ToString());
+                    GridViewRow gv = Gv_incomereport.Rows[j];
+                    Label voucher = (Label)gv.Cells[0].FindControl("lblincomeVoucher");
+                    TextBox remark = (TextBox)gv.Cells[0].FindControl("txtremarks");
+                    objData.VoucherNo = voucher.Text.Trim() == "" ? "" : voucher.Text.Trim();
+                    objData.EmployeeID = LogData.EmployeeID;
+
+                    if (remark.Text == "")
+                    {
+                        Messagealert_.ShowMessage(lblresult, "Remarks", 0);
+                        divmsg3.Attributes["class"] = "FailAlert";
+                        divmsg3.Visible = true;
+                        remark.Focus();
+                        return;
+                    }
+                    else
+                    {
+                        objData.Remarks = remark.Text.Trim() == "" ? "" : remark.Text.Trim();
+                    }
+      
+                    int result = objBO.DeleteTransactionByVoucherNo(objData);
+
+                    if (result == 1)
+                    {
+                        transactiontype();
+                        divmsg3.Visible = false;
+                    }
+                }
+            }
+            catch (Exception ex) //Exception in agent layer itself
+            {
+                PolicyBasedExceptionHandler.HandleException(PolicyBasedExceptionHandler.PolicyName.UIExceptionPolicy, ex, "1000001");
+                LogManager.LogMedError(ex, EnumErrorLogSourceTier.Web);
+                Messagealert_.ShowMessage(lblresult, "system", 0);
+                div3.Attributes["class"] = "FailAlert";
+                div3.Visible = true;
+                return;
+            }
+        }
+
+        protected void GV_expensesreport_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void Gv_incomereport_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+        }
+
+        protected void btnprints_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
