@@ -2644,6 +2644,12 @@
       <DependentUpon>Culturetemplate.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="MedLab\Report\PrintMultipleReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrintMultipleReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="MedLab\Report\ReportViewer.aspx.cs">
       <DependentUpon>ReportViewer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -4479,6 +4485,10 @@
       <LastGenOutput>Culturetemplate.cs</LastGenOutput>
     </Content>
     <Content Include="MedAccount\Reports\ManualTransaction.rpt" />
+    <Content Include="MedLab\Report\PrintMultipleReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PrintMultipleReport.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="MedNurse\Reports\NurseRecordSheetRpt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>NurseRecordSheetRpt.cs</LastGenOutput>
@@ -4658,7 +4668,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>63000</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Mediqura.Web.MedLab {
-    
-    
-    public partial class LabReportCollection {
-        
+namespace Mediqura.Web.MedLab
+{
+
+
+    public partial class LabReportCollection
+    {
+
         /// <summary>
         /// upMains control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel upMains;
-        
+
         /// <summary>
         /// divmsg1 control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divmsg1;
-        
+
         /// <summary>
         /// lblmessage control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmessage;
-        
+
         /// <summary>
         /// hidepanel control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel hidepanel;
-        
+
         /// <summary>
         /// confirmBox control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl confirmBox;
-        
+
         /// <summary>
         /// Span5 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span5;
-        
+
         /// <summary>
         /// ddl_patient_type control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_patient_type;
-        
+
         /// <summary>
         /// Span10 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span10;
-        
+
         /// <summary>
         /// ddl_labgroup control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_labgroup;
-        
+
         /// <summary>
         /// Span3 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span3;
-        
+
         /// <summary>
         /// ddl_labsubgroup control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_labsubgroup;
-        
+
         /// <summary>
         /// Span1 control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span1;
-        
+
         /// <summary>
         /// ddl_labTestName control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_labTestName;
-        
+
         /// <summary>
         /// Span7 control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span7;
-        
+
         /// <summary>
         /// txt_InvNumber control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_InvNumber;
-        
+
         /// <summary>
         /// AutoCompleteExtender2 control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender2;
-        
+
         /// <summary>
         /// Span4 control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span4;
-        
+
         /// <summary>
         /// txt_patientName control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_patientName;
-        
+
         /// <summary>
         /// AutoCompleteExtender1 control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender1;
-        
+
         /// <summary>
         /// Span6 control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span6;
-        
+
         /// <summary>
         /// ddlstatus control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlstatus;
-        
+
         /// <summary>
         /// Span2 control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span2;
-        
+
         /// <summary>
         /// txtdatefrom control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtdatefrom;
-        
+
         /// <summary>
         /// CalendarExtender2 control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
-        
+
         /// <summary>
         /// MaskedEditExtender2 control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender2;
-        
+
         /// <summary>
         /// Span8 control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span8;
-        
+
         /// <summary>
         /// txtDateto control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateto;
-        
+
         /// <summary>
         /// CalendarExtender1 control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
-        
+
         /// <summary>
         /// MaskedEditExtender1 control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender1;
-        
+
         /// <summary>
         /// Span9 control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span9;
-        
+
         /// <summary>
         /// ddl_centre control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_centre;
-        
+
         /// <summary>
         /// Span28 control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span28;
-        
+
         /// <summary>
         /// ddl_show control.
         /// </summary>
@@ -308,7 +310,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddl_show;
-        
+
         /// <summary>
         /// btnsearch control.
         /// </summary>
@@ -317,7 +319,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnsearch;
-        
+
         /// <summary>
         /// btnresets control.
         /// </summary>
@@ -326,7 +328,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnresets;
-        
+
         /// <summary>
         /// hdnValue control.
         /// </summary>
@@ -335,7 +337,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnValue;
-        
+
         /// <summary>
         /// divmsg3 control.
         /// </summary>
@@ -344,7 +346,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divmsg3;
-        
+
         /// <summary>
         /// lblresult control.
         /// </summary>
@@ -353,7 +355,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblresult;
-        
+
         /// <summary>
         /// lbl_totalrecords control.
         /// </summary>
@@ -362,7 +364,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbl_totalrecords;
-        
+
         /// <summary>
         /// GV_PatientList control.
         /// </summary>
@@ -371,7 +373,25 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GV_PatientList;
-        
+
+        /// <summary>
+        /// hdn_header control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdn_header;
+
+        /// <summary>
+        /// printInv_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button printInv_btn;
+
         /// <summary>
         /// txt_PatientDetails control.
         /// </summary>
@@ -380,7 +400,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_PatientDetails;
-        
+
         /// <summary>
         /// hdnpath control.
         /// </summary>
@@ -389,7 +409,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label hdnpath;
-        
+
         /// <summary>
         /// hdnuhid control.
         /// </summary>
@@ -398,7 +418,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label hdnuhid;
-        
+
         /// <summary>
         /// hdntestid control.
         /// </summary>
@@ -407,7 +427,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label hdntestid;
-        
+
         /// <summary>
         /// hdnemail control.
         /// </summary>
@@ -416,7 +436,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label hdnemail;
-        
+
         /// <summary>
         /// hdninvnumber control.
         /// </summary>
@@ -425,7 +445,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label hdninvnumber;
-        
+
         /// <summary>
         /// GvPatientTestList control.
         /// </summary>
@@ -434,7 +454,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvPatientTestList;
-        
+
         /// <summary>
         /// btn_send control.
         /// </summary>
@@ -443,7 +463,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_send;
-        
+
         /// <summary>
         /// txtreportTemp control.
         /// </summary>
@@ -452,7 +472,7 @@ namespace Mediqura.Web.MedLab {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField txtreportTemp;
-        
+
         /// <summary>
         /// updateProgress2 control.
         /// </summary>
