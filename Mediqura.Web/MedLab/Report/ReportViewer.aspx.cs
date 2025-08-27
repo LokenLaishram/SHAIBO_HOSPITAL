@@ -100,6 +100,10 @@ namespace Mediqura.Web.MedLab.Report
                         // ConvertReportToImage();
                         PrintCultureReport();
                         break;
+                    case "MultiReport":
+                        // ConvertReportToImage();
+                        PrintMultiReportwithSameInv();
+                        break;
                 }
             }
         }
@@ -114,19 +118,19 @@ namespace Mediqura.Web.MedLab.Report
             DataTable dt2 = new DataTable();
             string TestID = HttpUtility.ParseQueryString(myUri.Query).Get("TestID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("TestID");
             string TemplateID = HttpUtility.ParseQueryString(myUri.Query).Get("Template") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("Template");
-      
-                if (Convert.ToInt32(TemplateID) == 1023)
-                {
-                    crystalReport.Load(Server.MapPath("Culturetemplate.rpt"));
-                }
-                else if (Convert.ToInt32(TemplateID) == 1024)
-                {
-                    crystalReport.Load(Server.MapPath("Urine.rpt"));
-                }
-                else
-                {
-                    crystalReport.Load(Server.MapPath("Commontemplate.rpt"));
-                }
+
+            if (Convert.ToInt32(TemplateID) == 1023)
+            {
+                crystalReport.Load(Server.MapPath("Culturetemplate.rpt"));
+            }
+            else if (Convert.ToInt32(TemplateID) == 1024)
+            {
+                crystalReport.Load(Server.MapPath("Urine.rpt"));
+            }
+            else
+            {
+                crystalReport.Load(Server.MapPath("Commontemplate.rpt"));
+            }
 
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -151,6 +155,47 @@ namespace Mediqura.Web.MedLab.Report
             crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, false, "ExportedReport");
 
         }
+
+        protected void PrintMultiReportwithSameInv()
+        {
+            Commonfunction common = new Commonfunction();
+            string decryptionstring = common.Decrypt(Request["ID"]);
+            string baseparam = decryptionstring;
+            string reuri = "http://ReportViewer.aspx?" + baseparam + "";
+            Uri myUri = new Uri(reuri);
+
+            DataTable dt10 = new DataTable();
+            string TestID = HttpUtility.ParseQueryString(myUri.Query).Get("TestID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("TestID");
+            string TemplateID = HttpUtility.ParseQueryString(myUri.Query).Get("Template") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("Template");
+
+            
+            crystalReport.Load(Server.MapPath("PrintMultipleReport.rpt"));
+
+
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "usp_MDQ_Print_Multiple_ReportsInSinglePaper_RPT";
+                        cmd.Parameters.Add("@LoginName", SqlDbType.VarChar).Value = LogData.UserName;
+                        cmd.Parameters.Add("@Investigationumber", SqlDbType.VarChar).Value = HttpUtility.ParseQueryString(myUri.Query).Get("Inv") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("Inv");
+                        cmd.Parameters.Add("@UHID", SqlDbType.BigInt).Value = HttpUtility.ParseQueryString(myUri.Query).Get("UHID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("UHID");
+                        cmd.Parameters.Add("@TestID", SqlDbType.VarChar).Value = HttpUtility.ParseQueryString(myUri.Query).Get("TestID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("TestID");
+                        cmd.Parameters.Add("@IsShowHF", SqlDbType.Int).Value = HttpUtility.ParseQueryString(myUri.Query).Get("showheader") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("showheader");
+                        cmd.Connection = con;
+                        sda.SelectCommand = cmd;
+                        sda.Fill(dt10);
+                    }
+                }
+            }
+            crystalReport.SetDataSource(dt10);
+            crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, false, "ExportedReport");
+
+        }
+
         protected void PrintCultureReport()
         {
             Commonfunction common = new Commonfunction();

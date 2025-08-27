@@ -344,7 +344,7 @@ namespace Mediqura.Web.MedLab
                             {
                                 if (SubgroupID.Text == "8")
                                 {
-                                    string param = "option=MultipleReport&Inv=" + InvNo.Text + "&UHID=" + UHID.Text + "&TestID=" + TestID.Text + "&showheader=" + "1" + "&Template=" + template + "&Type=" + "2";
+                                    string param = "option=MultipleReport&Inv=" + InvNo.Text + "&UHID=" + UHID.Text + "&TestID=" + TestID.Text + "&showheader=" + "0" + "&Template=" + template + "&Type=" + "2";
                                     Commonfunction common = new Commonfunction();
                                     string ecryptstring = common.Encrypt(param);
                                     string baseurl = "../MedLab/Report/ReportViewer.aspx?ID=" + ecryptstring;
@@ -353,7 +353,7 @@ namespace Mediqura.Web.MedLab
                                 }
                                 else
                                 {
-                                    string param = "option=MultipleReport&Inv=" + InvNo.Text + "&UHID=" + UHID.Text + "&TestID=" + TestID.Text + "&showheader=" + "1" + "&Template=" + template + "&Type=" + "1";
+                                    string param = "option=MultipleReport&Inv=" + InvNo.Text + "&UHID=" + UHID.Text + "&TestID=" + TestID.Text + "&showheader=" + "0" + "&Template=" + template + "&Type=" + "1";
                                     Commonfunction common = new Commonfunction();
                                     string ecryptstring = common.Encrypt(param);
                                     string baseurl = "../MedLab/Report/ReportViewer.aspx?ID=" + ecryptstring;
@@ -472,7 +472,7 @@ namespace Mediqura.Web.MedLab
                             {
                                 if (SubgroupID.Text == "8")
                                 {
-                                    string param = "option=MultipleReport&Inv=" + InvNo.Text + "&UHID=" + UHID.Text + "&TestID=" + TestID.Text + "&showheader=" + "0" + "&Template=" + template + "&Type=" + "2";
+                                    string param = "option=MultipleReport&Inv=" + InvNo.Text + "&UHID=" + UHID.Text + "&TestID=" + TestID.Text + "&showheader=" + "1" + "&Template=" + template + "&Type=" + "2";
                                     Commonfunction common = new Commonfunction();
                                     string ecryptstring = common.Encrypt(param);
                                     string baseurl = "../MedLab/Report/ReportViewer.aspx?ID=" + ecryptstring;
@@ -481,7 +481,7 @@ namespace Mediqura.Web.MedLab
                                 }
                                 else
                                 {
-                                    string param = "option=MultipleReport&Inv=" + InvNo.Text + "&UHID=" + UHID.Text + "&TestID=" + TestID.Text + "&showheader=" + "0" + "&Template=" + template + "&Type=" + "1";
+                                    string param = "option=MultipleReport&Inv=" + InvNo.Text + "&UHID=" + UHID.Text + "&TestID=" + TestID.Text + "&showheader=" + "1" + "&Template=" + template + "&Type=" + "1";
                                     Commonfunction common = new Commonfunction();
                                     string ecryptstring = common.Encrypt(param);
                                     string baseurl = "../MedLab/Report/ReportViewer.aspx?ID=" + ecryptstring;
@@ -693,6 +693,7 @@ namespace Mediqura.Web.MedLab
                 Label NotEntr2 = (Label)e.Row.FindControl("lblNotEntr2");
                 Label IsVerified = (Label)e.Row.FindControl("lblIsVerified");
                 Label IsReportPrinted = (Label)e.Row.FindControl("lblIsReportPrinted");
+                CheckBox printcheckbox = (CheckBox)e.Row.FindControl("testid_checkbox");
                 if (Convert.ToInt32(IsVerified.Text) == 1)
                 {
                     lnkprint.Enabled = true;
@@ -702,6 +703,7 @@ namespace Mediqura.Web.MedLab
                     lnkreprint.Visible = false;
                     lnkEmailPrint.Enabled = true;
                     lnkEmailPrint.Visible = true;
+                    printcheckbox.Enabled = true;
                     if (Convert.ToInt32(lblHeaderID.Text) == 1)
                     {
                         lnkEmailPrint.Text = "";
@@ -1137,6 +1139,42 @@ namespace Mediqura.Web.MedLab
                 return false;
             }
         }
-       
+
+        protected void printInv_btn_Click(object sender, EventArgs e)
+        {
+
+            string selectedtestid = "";
+            string INV = "";
+            string UHID = "";
+            string TEMPLATE = "";
+            foreach (GridViewRow row in GV_PatientList.Rows)
+            {
+                CheckBox chkSelect = (CheckBox)row.FindControl("testid_checkbox");
+                if (chkSelect != null && chkSelect.Checked)
+                {
+                    INV = ((Label)row.FindControl("lbl_invnumber")).Text;
+                    UHID = ((Label)row.FindControl("lblUHID")).Text;
+                    TEMPLATE = ((Label)row.FindControl("lbltemplateID")).Text;
+                    if (selectedtestid == "")
+                    {
+                        selectedtestid = ((Label)row.FindControl("lblTestID")).Text;
+                    }
+                    else
+                    {
+                        selectedtestid = selectedtestid + "," + ((Label)row.FindControl("lblTestID")).Text;
+                    }
+
+                }
+            }
+            if (selectedtestid != "")
+            {
+                string param = "option=MultiReport&Inv=" + INV + "&UHID=" + UHID + "&TestID=" + selectedtestid + "&showheader=" + hdn_header.Value + "&Template=" + TEMPLATE + "&Type=" + "1";
+                Commonfunction common = new Commonfunction();
+                string ecryptstring = common.Encrypt(param);
+                string baseurl = "../MedLab/Report/ReportViewer.aspx?ID=" + ecryptstring;
+                string fullURL = "window.open('" + baseurl + "', '_blank');";
+                ScriptManager.RegisterStartupScript(this, typeof(string), "OPEN_New_Tab", fullURL, true);
+            }
+        }
     }
 }

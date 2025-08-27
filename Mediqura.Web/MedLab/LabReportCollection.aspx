@@ -18,6 +18,50 @@
 
             }
         }
+
+        function btnConfirmheader() {
+            var sresult = confirm("Do you want to print without header?");
+            if (sresult == true) {
+                document.getElementById("<%=hdn_header.ClientID %>").value = 0;
+
+            }
+            else {
+                document.getElementById("<%=hdn_header.ClientID %>").value = 1;
+
+            }
+        }
+
+            function checkAll(objRef) {
+                var GridView = objRef.parentNode.parentNode.parentNode;
+                var inputList = GridView.getElementsByTagName("input");
+                for (var i = 0; i < inputList.length; i++) {
+                    //Get the Cell To find out ColumnIndex
+                    var row = inputList[i].parentNode.parentNode;
+                    if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
+                        if (objRef.checked) {
+                            //If the header checkbox is checked
+                            //check all checkboxes
+                            //and highlight all rows
+                            row.style.backgroundColor = "white";
+                            inputList[i].checked = true;
+                        }
+                        else {
+                            //If the header checkbox is checked
+                            //uncheck all checkboxes
+                            //and change rowcolor back to original
+                            if (row.rowIndex % 2 == 0) {
+                                //Alternating Row Color
+                                row.style.backgroundColor = "white";
+                            }
+                            else {
+                                row.style.backgroundColor = "white";
+                            }
+                            inputList[i].checked = false;
+                        }
+                    }
+                }
+            }
+
     </script>
     <h2 class="breadcumb_cus">Report Delivery</h2>
     <asp:UpdatePanel ID="upMains" runat="server" UpdateMode="Conditional">
@@ -175,7 +219,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="pbody">
-                                <div class="grid" style="float: left; width: 100%; min-height: 55vh; overflow: auto">
+                                <div class="grid" style="float: left; width: 100%; height: 50vh; overflow: auto">
                                     <asp:GridView ID="GV_PatientList" runat="server" CssClass="table-hover grid_table result-table" AllowPaging="true" AllowCustomPaging="true"
                                         EmptyDataText="No any test result entry..... " OnPageIndexChanging="GV_PatientList_PageIndexChanging" OnRowCommand="gv_PatientTestlist_RowCommand"
                                         DataKeyNames="ID"  AutoGenerateColumns="False" OnRowDataBound="GV_PatientList_RowDataBound"
@@ -296,6 +340,16 @@
                                                       </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="2%" />
                                             </asp:TemplateField>
+                                            <asp:TemplateField>
+                                                <HeaderTemplate>
+                                                    Select All?
+                                                   <asp:CheckBox ID="chekboxall" runat="server" onclick="checkAll(this);" />
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <asp:CheckBox ID="testid_checkbox" Enabled="false" runat="server" AutoPostBack="true" />
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Center" Width="1%" />
+                                            </asp:TemplateField>
                                             <asp:ButtonField Visible="false" CommandName="Update" HeaderText="Update Receiving Time" ItemStyle-Width="1%" ButtonType="Button" Text="Update" />
                                         </Columns>
                                         <PagerSettings Mode="NumericFirstLast" PageButtonCount="5" FirstPageText="<<" LastPageText=">>" />
@@ -303,6 +357,12 @@
                                     </asp:GridView>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group input-group cuspanelbtngrp  pull-right " style="margin-right:10px;">
+                              <asp:HiddenField ID="hdn_header" runat="server" />
+                            <asp:Button ID="printInv_btn" runat="server" UseSubmitBehavior="False" OnClientClick="btnConfirmheader();" Class="btn  btn-sm cusbtn" Text="Print Selected" OnClick="printInv_btn_Click" />
                         </div>
                     </div>
                 </div>
