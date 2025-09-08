@@ -31,36 +31,36 @@
             }
         }
 
-            function checkAll(objRef) {
-                var GridView = objRef.parentNode.parentNode.parentNode;
-                var inputList = GridView.getElementsByTagName("input");
-                for (var i = 0; i < inputList.length; i++) {
-                    //Get the Cell To find out ColumnIndex
-                    var row = inputList[i].parentNode.parentNode;
-                    if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
-                        if (objRef.checked) {
-                            //If the header checkbox is checked
-                            //check all checkboxes
-                            //and highlight all rows
+        function checkAll(objRef) {
+            var GridView = objRef.parentNode.parentNode.parentNode;
+            var inputList = GridView.getElementsByTagName("input");
+            for (var i = 0; i < inputList.length; i++) {
+                //Get the Cell To find out ColumnIndex
+                var row = inputList[i].parentNode.parentNode;
+                if (inputList[i].type == "checkbox" && objRef != inputList[i]) {
+                    if (objRef.checked) {
+                        //If the header checkbox is checked
+                        //check all checkboxes
+                        //and highlight all rows
+                        row.style.backgroundColor = "white";
+                        inputList[i].checked = true;
+                    }
+                    else {
+                        //If the header checkbox is checked
+                        //uncheck all checkboxes
+                        //and change rowcolor back to original
+                        if (row.rowIndex % 2 == 0) {
+                            //Alternating Row Color
                             row.style.backgroundColor = "white";
-                            inputList[i].checked = true;
                         }
                         else {
-                            //If the header checkbox is checked
-                            //uncheck all checkboxes
-                            //and change rowcolor back to original
-                            if (row.rowIndex % 2 == 0) {
-                                //Alternating Row Color
-                                row.style.backgroundColor = "white";
-                            }
-                            else {
-                                row.style.backgroundColor = "white";
-                            }
-                            inputList[i].checked = false;
+                            row.style.backgroundColor = "white";
                         }
+                        inputList[i].checked = false;
                     }
                 }
             }
+        }
 
     </script>
     <h2 class="breadcumb_cus">Report Delivery</h2>
@@ -222,7 +222,7 @@
                                 <div class="grid" style="float: left; width: 100%; height: 50vh; overflow: auto">
                                     <asp:GridView ID="GV_PatientList" runat="server" CssClass="table-hover grid_table result-table" AllowPaging="true" AllowCustomPaging="true"
                                         EmptyDataText="No any test result entry..... " OnPageIndexChanging="GV_PatientList_PageIndexChanging" OnRowCommand="gv_PatientTestlist_RowCommand"
-                                        DataKeyNames="ID"  AutoGenerateColumns="False" OnRowDataBound="GV_PatientList_RowDataBound"
+                                        DataKeyNames="ID" AutoGenerateColumns="False" OnRowDataBound="GV_PatientList_RowDataBound"
                                         Width="100%" HorizontalAlign="Center">
                                         <Columns>
                                             <asp:TemplateField>
@@ -230,7 +230,7 @@
                                                     Sl.No
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
-                                                   <%# (Container.DataItemIndex+1)+(GV_PatientList.PageIndex)*GV_PatientList.PageSize %>
+                                                    <%# (Container.DataItemIndex+1)+(GV_PatientList.PageIndex)*GV_PatientList.PageSize %>
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="1%" />
                                             </asp:TemplateField>
@@ -239,7 +239,7 @@
                                                     Inv.No.
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lvl_LabInv"  Visible="false" runat="server" Text='<%# Eval("InVnumber")%>'></asp:Label>
+                                                    <asp:Label ID="lvl_LabInv" Visible="false" runat="server" Text='<%# Eval("InVnumber")%>'></asp:Label>
                                                     <asp:Label ID="lblPID" Font-Underline="true" ForeColor="Red" Visible="false" runat="server" Text='<%# Eval("ID")%>'></asp:Label>
                                                     <asp:Label ID="lblHeaderID" Visible="false" runat="server" Text='<%# Eval("HeaderID")%>'></asp:Label>
                                                     <asp:Label ID="lblLabGroup" Style="text-align: left !important;" runat="server" Visible="false"
@@ -259,7 +259,6 @@
                                                     <asp:Label ID="lbldeliverystatus" Visible="false" runat="server" Text='<%# Eval("DeliveryStatus")%>'></asp:Label>
                                                     <asp:Label ID="lblLabTestID" Visible="false" runat="server" Text='<%# Eval("LabTestID") %>'></asp:Label>
                                                     <asp:Label ID="lbl_invnumber" runat="server" Text='<%# Eval("InVnumber") %>'></asp:Label>
-
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="2%" />
                                             </asp:TemplateField>
@@ -269,10 +268,22 @@
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
                                                     <asp:Label ID="lbl_PatUHID" Visible="false" runat="server" Text='<%# Eval("UHID")%>'></asp:Label>
-                                                    <asp:Label ID="lbl_PatientName"  runat="server" Text='<%# Eval("PatientName")%>'></asp:Label>
+                                                    <asp:Label ID="lbl_PatientName" runat="server" Text='<%# Eval("PatientName")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="15%" />
                                             </asp:TemplateField>
+
+                                            <asp:TemplateField>
+                                                <HeaderTemplate>
+                                                    Sub-Group
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lbl_subgroupname" Style="text-align: left !important;" runat="server" Visible="true"
+                                                        Text='<%# Eval("LabSubGrp") %>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Left" Width="2%" />
+                                            </asp:TemplateField>
+
                                             <asp:TemplateField>
                                                 <HeaderTemplate>
                                                     Test Name
@@ -281,7 +292,7 @@
                                                     <asp:Label ID="lblUHID" Visible="false" runat="server" Text='<%# Eval("UHID") %>'></asp:Label>
                                                     <asp:Label ID="lbltemplate" Style="text-align: left !important;" runat="server" Visible="false"
                                                         Text='<%# Eval("Template") %>'></asp:Label>
-                                                     <asp:Label ID="lbltemplateID" Style="text-align: left !important;" runat="server" Visible="false"
+                                                    <asp:Label ID="lbltemplateID" Style="text-align: left !important;" runat="server" Visible="false"
                                                         Text='<%# Eval("TemplateID") %>'></asp:Label>
                                                     <asp:Label ID="lblTestID" Style="text-align: left !important;" runat="server" Visible="false"
                                                         Text='<%# Eval("TestID") %>'></asp:Label>
@@ -299,13 +310,13 @@
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="2%" />
                                             </asp:TemplateField>
-                                             <asp:TemplateField>
+                                            <asp:TemplateField>
                                                 <HeaderTemplate>
                                                     Bill Status
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblBillStatusID" Visible="false" runat="server" Text='<%# Eval("UHID")%>'></asp:Label>
-                                                    <asp:Label ID="lblBillStatus"  runat="server" Text='<%# Eval("PageName")%>'></asp:Label>
+                                                    <asp:Label ID="lblBillStatus" runat="server" Text='<%# Eval("PageName")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="2%" />
                                             </asp:TemplateField>
@@ -330,14 +341,14 @@
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="2%" />
                                             </asp:TemplateField>
-                                              <asp:TemplateField>
+                                            <asp:TemplateField>
                                                 <HeaderTemplate>
                                                     HPrint
                                                 </HeaderTemplate>
                                                 <ItemTemplate>
-                                                     <asp:Label ID="lblNotEntr2" runat="server" Text='Not Verified'></asp:Label>
+                                                    <asp:Label ID="lblNotEntr2" runat="server" Text='Not Verified'></asp:Label>
                                                     <asp:LinkButton ID="lnkEmailPrint" Font-Underline="true" Visible="false" runat="server" CommandName="EmailPrint" CommandArgument="<%# ((GridViewRow) Container).RowIndex  %>" ValidationGroup="none" OnClientClick="btnConfirm();"><span style="color:red">HPrint</span></asp:LinkButton>
-                                                      </ItemTemplate>
+                                                </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="2%" />
                                             </asp:TemplateField>
                                             <asp:TemplateField>
@@ -360,8 +371,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group input-group cuspanelbtngrp  pull-right " style="margin-right:10px;">
-                              <asp:HiddenField ID="hdn_header" runat="server" />
+                        <div class="form-group input-group cuspanelbtngrp  pull-right " style="margin-right: 10px;">
+                            <asp:HiddenField ID="hdn_header" runat="server" />
                             <asp:Button ID="printInv_btn" runat="server" UseSubmitBehavior="False" OnClientClick="btnConfirmheader();" Class="btn  btn-sm cusbtn" Text="Print Selected" OnClick="printInv_btn_Click" />
                         </div>
                     </div>
@@ -384,7 +395,7 @@
                         <div class="col-sm-12">
                             <div class="grid" style="float: left; width: 100%; overflow: auto">
                                 <asp:GridView ID="GvPatientTestList" runat="server" CssClass="table-hover grid_table result-table" AllowPaging="True" AllowCustomPaging="True"
-                                   OnRowCommand="GvPatientTestList_RowCommand"
+                                    OnRowCommand="GvPatientTestList_RowCommand"
                                     EmptyDataText="No record found..." AutoGenerateColumns="False"
                                     Width="100%" HorizontalAlign="Center">
                                     <Columns>

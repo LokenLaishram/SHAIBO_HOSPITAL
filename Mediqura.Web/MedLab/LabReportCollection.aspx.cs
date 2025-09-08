@@ -501,6 +501,9 @@ namespace Mediqura.Web.MedLab
                     objData.ID = Convert.ToInt64(InvID.Text == "" ? "0" : InvID.Text);
                     int result = objBO.UpdateRadioReportVerification(objData);
                 }
+
+
+
                 if (e.CommandName == "View")
                 {
                     int i = Convert.ToInt16(e.CommandArgument.ToString());
@@ -727,15 +730,14 @@ namespace Mediqura.Web.MedLab
                 }
                 if (lblDeliveryStatus.Text == "0")
                 {
-                    e.Row.Cells[3].BackColor = System.Drawing.Color.Yellow;
+                    e.Row.Cells[4].BackColor = System.Drawing.Color.Yellow;
                     Testname.ForeColor = System.Drawing.Color.Black;
 
                 }
                 if (lblDeliveryStatus.Text == "1")
                 {
-                    e.Row.Cells[3].BackColor = System.Drawing.Color.Green;
+                    e.Row.Cells[4].BackColor = System.Drawing.Color.Green;
                     Testname.ForeColor = System.Drawing.Color.White;
-                    
                 }
                 if (IsReportPrinted.Text == "0")
                 {
@@ -1176,5 +1178,9 @@ namespace Mediqura.Web.MedLab
                 ScriptManager.RegisterStartupScript(this, typeof(string), "OPEN_New_Tab", fullURL, true);
             }
         }
+
+
+
+
     }
 }
