@@ -35,7 +35,7 @@ namespace Mediqura.Web.MedLab
                 lblmessage.Visible = false;
                 ddlbind();
                 checkSelect();
-                bindgrid(1);               
+                bindgrid(1);
             }
         }
         public void checkSelect()
@@ -180,7 +180,7 @@ namespace Mediqura.Web.MedLab
                 List<LadReportCollectionData> lstemp = GetLabTestPatientList(page);
                 if (lstemp.Count > 0)
                 {
-                    GV_PatientList.VirtualItemCount = lstemp[0].MaximumRows;//total item is required for custom paging
+                    GV_PatientList.VirtualItemCount = lstemp[0].MaximumRows;
                     GV_PatientList.PageIndex = page - 1;
                     GV_PatientList.DataSource = lstemp;
                     GV_PatientList.DataBind();
@@ -582,7 +582,7 @@ namespace Mediqura.Web.MedLab
                 }
                 if (e.CommandName == "GetTest")
                 {
-                   
+
                     LadReportCollectionData objresult = new LadReportCollectionData();
                     IFormatProvider option = new System.Globalization.CultureInfo("en-GB", true);
                     int i = Convert.ToInt16(e.CommandArgument.ToString());
@@ -638,7 +638,7 @@ namespace Mediqura.Web.MedLab
                 {
                     byte[] data = Convert.FromBase64String(Result[i].ReportImage.ToString());
                     if (Directory.Exists(Rpath))
-                    {                       
+                    {
                         Rpath = Rpath + "\\" + Result[i].EmailTestName + ".pdf";
                         using (FileStream Writer = new System.IO.FileStream(Rpath, FileMode.Create, FileAccess.Write))
                         {
@@ -720,7 +720,7 @@ namespace Mediqura.Web.MedLab
                     lnkprint.Visible = false;
                     lnkreprint.Visible = false;
                     RNotEntry.Visible = true;
-                    NotEntr2.Visible = true;                   
+                    NotEntr2.Visible = true;
                     if (Convert.ToInt32(lblHeaderID.Text) == 1)
                     {
                         lnkEmailPrint.Text = "";
@@ -863,7 +863,7 @@ namespace Mediqura.Web.MedLab
                                 }
                             }
                         }
-                      
+
                     }
 
                     LadReportCollectionData objData = new LadReportCollectionData();
@@ -1033,7 +1033,7 @@ namespace Mediqura.Web.MedLab
                 }
             }
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
-            {               
+            {
                 Credentials = new NetworkCredential("downtownkbk@gmail.com", "EmailPass@123"),
                 EnableSsl = true
             };
@@ -1127,8 +1127,8 @@ namespace Mediqura.Web.MedLab
             {
                 using (var client = new WebClient())
                 using (client.OpenRead("http://google.com/generate_204"))
-                
-                btn_send.Visible = true;
+
+                    btn_send.Visible = true;
                 btn_send.Text = "Send mail";
                 btn_send.Attributes.Remove("disabled");
                 return true;
@@ -1144,11 +1144,12 @@ namespace Mediqura.Web.MedLab
 
         protected void printInv_btn_Click(object sender, EventArgs e)
         {
-
             string selectedtestid = "";
+            string orderList = "";
             string INV = "";
             string UHID = "";
             string TEMPLATE = "";
+
             foreach (GridViewRow row in GV_PatientList.Rows)
             {
                 CheckBox chkSelect = (CheckBox)row.FindControl("testid_checkbox");
@@ -1157,20 +1158,29 @@ namespace Mediqura.Web.MedLab
                     INV = ((Label)row.FindControl("lbl_invnumber")).Text;
                     UHID = ((Label)row.FindControl("lblUHID")).Text;
                     TEMPLATE = ((Label)row.FindControl("lbltemplateID")).Text;
+
+                    string testID = ((Label)row.FindControl("lblTestID")).Text;
+                    string orderValue = ((TextBox)row.FindControl("txtOrder")).Text;
+
                     if (selectedtestid == "")
                     {
-                        selectedtestid = ((Label)row.FindControl("lblTestID")).Text;
+                        selectedtestid = testID;
+                        orderList = string.IsNullOrEmpty(orderValue) ? "1" : orderValue;
                     }
                     else
                     {
-                        selectedtestid = selectedtestid + "," + ((Label)row.FindControl("lblTestID")).Text;
+                        selectedtestid += "," + testID;
+                        orderList += "," + (string.IsNullOrEmpty(orderValue) ? "1" : orderValue);
                     }
-
                 }
             }
             if (selectedtestid != "")
             {
-                string param = "option=MultiReport&Inv=" + INV + "&UHID=" + UHID + "&TestID=" + selectedtestid + "&showheader=" + hdn_header.Value + "&Template=" + TEMPLATE + "&Type=" + "1";
+                string param = "option=MultiReport&Inv=" + INV +
+                               "&UHID=" + UHID +
+                               "&TestID=" + selectedtestid +
+                               "&OrderList=" + orderList +
+                               "&showheader=" + hdn_header.Value;
                 Commonfunction common = new Commonfunction();
                 string ecryptstring = common.Encrypt(param);
                 string baseurl = "../MedLab/Report/ReportViewer.aspx?ID=" + ecryptstring;
@@ -1178,9 +1188,5 @@ namespace Mediqura.Web.MedLab
                 ScriptManager.RegisterStartupScript(this, typeof(string), "OPEN_New_Tab", fullURL, true);
             }
         }
-
-
-
-
     }
 }
