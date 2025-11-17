@@ -51,12 +51,14 @@ namespace Mediqura.CommonData.MedLab
         [DataMember]
         public int LabSubGrpID { get; set; }
         [DataMember]
-        public int PatientType { get; set; }        
+        public string LabSubGrp { get; set; }
+        [DataMember]
+        public int PatientType { get; set; }
         [DataMember]
         public int TestStatus { get; set; }
         [DataMember]
         public int TemplateID { get; set; }
-        [DataMember]       
+        [DataMember]
         public string Template { get; set; }
         [DataMember]
         public string PatientAddress { get; set; }
@@ -86,6 +88,9 @@ namespace Mediqura.CommonData.MedLab
         public string Testids { get; set; }
         [DataMember]
         public int RunnerID { get; set; }
+
+        [DataMember]
+        public string OrderList { get; set; }
     }
     public class LadReportCollectionDataTOeXCEL
     {
