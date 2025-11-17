@@ -88,6 +88,9 @@ namespace Mediqura.CommonData.MedLab
         public string Testids { get; set; }
         [DataMember]
         public int RunnerID { get; set; }
+
+        [DataMember]
+        public string OrderList { get; set; }
     }
     public class LadReportCollectionDataTOeXCEL
     {

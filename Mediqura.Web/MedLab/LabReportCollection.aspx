@@ -3,8 +3,8 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Mediquraplaceholder" runat="server">
     <script type="text/javascript">
-        function printreport(InvNu, UHID, TestID, Template) {
-            window.open("Report/ReportViewer.aspx?option=ReportTemplate&Inv=" + InvNu + "&UHID=" + UHID + "&TestID=" + TestID + "&Template=" + Template)
+        function printreport(InvNu, UHID, TestID, OrderList, Template) {
+            window.open("Report/ReportViewer.aspx?option=ReportTemplate&Inv=" + InvNu + "&UHID=" + UHID + "&TestID=" + TestID + "&OrderList=" + OrderList + "&Template=" + Template)
         }
 
         function btnConfirm() {
@@ -23,11 +23,9 @@
             var sresult = confirm("Do you want to print without header?");
             if (sresult == true) {
                 document.getElementById("<%=hdn_header.ClientID %>").value = 0;
-
             }
             else {
                 document.getElementById("<%=hdn_header.ClientID %>").value = 1;
-
             }
         }
 
@@ -329,6 +327,27 @@
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" Width="1%" />
                                             </asp:TemplateField>
+
+
+                                            <asp:TemplateField>
+                                                <HeaderTemplate>
+                                                    Print Order
+                                                </HeaderTemplate>
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtOrder" runat="server" CssClass="form-control input-sm" Width="40px"></asp:TextBox>
+
+                                                    <asp:FilteredTextBoxExtender
+                                                        ID="ftbOrder"
+                                                        runat="server"
+                                                        TargetControlID="txtOrder"
+                                                        ValidChars="0123456789">
+                                                    </asp:FilteredTextBoxExtender>
+                                                </ItemTemplate>
+
+                                                <ItemStyle HorizontalAlign="Center" Width="2%" />
+                                            </asp:TemplateField>
+
+
                                             <asp:TemplateField>
                                                 <HeaderTemplate>
                                                     Print

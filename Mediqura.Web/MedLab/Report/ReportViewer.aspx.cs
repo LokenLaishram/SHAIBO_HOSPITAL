@@ -156,45 +156,89 @@ namespace Mediqura.Web.MedLab.Report
 
         }
 
+        //protected void PrintMultiReportwithSameInv()
+        //{
+        //    Commonfunction common = new Commonfunction();
+        //    string decryptionstring = common.Decrypt(Request["ID"]);
+        //    string baseparam = decryptionstring;
+        //    string reuri = "http://ReportViewer.aspx?" + baseparam + "";
+        //    Uri myUri = new Uri(reuri);
+
+        //    DataTable dt10 = new DataTable();
+        //    string TestID = HttpUtility.ParseQueryString(myUri.Query).Get("TestID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("TestID");
+        //    string TemplateID = HttpUtility.ParseQueryString(myUri.Query).Get("Template") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("Template");
+
+
+        //    crystalReport.Load(Server.MapPath("PrintMultipleReport.rpt"));
+
+
+        //    using (SqlConnection con = new SqlConnection(constr))
+        //    {
+        //        using (SqlCommand cmd = new SqlCommand())
+        //        {
+        //            using (SqlDataAdapter sda = new SqlDataAdapter())
+        //            {
+        //                cmd.CommandType = CommandType.StoredProcedure;
+        //                cmd.CommandText = "usp_MDQ_Print_Multiple_ReportsInSinglePaper_RPT";
+        //                cmd.Parameters.Add("@LoginName", SqlDbType.VarChar).Value = LogData.UserName;
+        //                cmd.Parameters.Add("@Investigationumber", SqlDbType.VarChar).Value = HttpUtility.ParseQueryString(myUri.Query).Get("Inv") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("Inv");
+        //                cmd.Parameters.Add("@UHID", SqlDbType.BigInt).Value = HttpUtility.ParseQueryString(myUri.Query).Get("UHID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("UHID");
+        //                cmd.Parameters.Add("@TestID", SqlDbType.VarChar).Value = HttpUtility.ParseQueryString(myUri.Query).Get("TestID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("TestID");
+        //                cmd.Parameters.Add("@IsShowHF", SqlDbType.Int).Value = HttpUtility.ParseQueryString(myUri.Query).Get("showheader") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("showheader");
+        //                cmd.Connection = con;
+        //                sda.SelectCommand = cmd;
+        //                sda.Fill(dt10);
+        //            }
+        //        }
+        //    }
+        //    crystalReport.SetDataSource(dt10);
+        //    crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, false, "ExportedReport");
+
+        //}
+
+
         protected void PrintMultiReportwithSameInv()
         {
             Commonfunction common = new Commonfunction();
             string decryptionstring = common.Decrypt(Request["ID"]);
             string baseparam = decryptionstring;
-            string reuri = "http://ReportViewer.aspx?" + baseparam + "";
+            string reuri = "http://ReportViewer.aspx?" + baseparam;
             Uri myUri = new Uri(reuri);
 
             DataTable dt10 = new DataTable();
-            string TestID = HttpUtility.ParseQueryString(myUri.Query).Get("TestID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("TestID");
-            string TemplateID = HttpUtility.ParseQueryString(myUri.Query).Get("Template") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("Template");
+
+            string Inv = HttpUtility.ParseQueryString(myUri.Query).Get("Inv");
+            string UHID = HttpUtility.ParseQueryString(myUri.Query).Get("UHID");
+            string TestID = HttpUtility.ParseQueryString(myUri.Query).Get("TestID");
+            string OrderList = HttpUtility.ParseQueryString(myUri.Query).Get("OrderList");
+            //string TemplateID = HttpUtility.ParseQueryString(myUri.Query).Get("Template");
+            string showHeader = HttpUtility.ParseQueryString(myUri.Query).Get("showheader");
 
             
             crystalReport.Load(Server.MapPath("PrintMultipleReport.rpt"));
 
-
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = new SqlCommand("usp_MDQ_Print_Multiple_ReportsInSinglePaper_RPT", con))
                 {
-                    using (SqlDataAdapter sda = new SqlDataAdapter())
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("@Investigationumber", SqlDbType.VarChar).Value = string.IsNullOrEmpty(Inv) ? (object)DBNull.Value : (object)Inv;
+                    cmd.Parameters.Add("@UHID", SqlDbType.BigInt).Value = string.IsNullOrEmpty(UHID) ? (object)DBNull.Value : Convert.ToInt64(UHID);
+                    cmd.Parameters.Add("@TestID", SqlDbType.VarChar).Value = string.IsNullOrEmpty(TestID) ? (object)DBNull.Value : (object)TestID;
+                    cmd.Parameters.Add("@OrderList", SqlDbType.VarChar).Value = string.IsNullOrEmpty(OrderList) ? (object)DBNull.Value : (object)OrderList;
+                    cmd.Parameters.Add("@IsShowHF", SqlDbType.Int).Value = string.IsNullOrEmpty(showHeader) ? (object)DBNull.Value : Convert.ToInt32(showHeader);
+
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "usp_MDQ_Print_Multiple_ReportsInSinglePaper_RPT";
-                        cmd.Parameters.Add("@LoginName", SqlDbType.VarChar).Value = LogData.UserName;
-                        cmd.Parameters.Add("@Investigationumber", SqlDbType.VarChar).Value = HttpUtility.ParseQueryString(myUri.Query).Get("Inv") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("Inv");
-                        cmd.Parameters.Add("@UHID", SqlDbType.BigInt).Value = HttpUtility.ParseQueryString(myUri.Query).Get("UHID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("UHID");
-                        cmd.Parameters.Add("@TestID", SqlDbType.VarChar).Value = HttpUtility.ParseQueryString(myUri.Query).Get("TestID") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("TestID");
-                        cmd.Parameters.Add("@IsShowHF", SqlDbType.Int).Value = HttpUtility.ParseQueryString(myUri.Query).Get("showheader") == "" ? null : HttpUtility.ParseQueryString(myUri.Query).Get("showheader");
-                        cmd.Connection = con;
-                        sda.SelectCommand = cmd;
                         sda.Fill(dt10);
                     }
                 }
             }
             crystalReport.SetDataSource(dt10);
             crystalReport.ExportToHttpResponse(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Response, false, "ExportedReport");
-
         }
+
 
         protected void PrintCultureReport()
         {
